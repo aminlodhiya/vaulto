@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  teleexpense:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - JWT_SECRET=teleexpense_docker_secret_key_2026
+      - NEXT_PUBLIC_APP_URL=http://localhost:3000
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
