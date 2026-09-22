@@ -101,26 +101,26 @@ export default function InvoicesPage() {
     switch (actual) {
       case "paid":
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-200 dark:border-blue-900/60 font-mono">
             <CheckCircle className="w-3 h-3" /> Paid
           </span>
         );
       case "overdue":
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 dark:bg-rose-950 dark:text-rose-300 border border-rose-200 dark:border-rose-800">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 dark:bg-rose-950 dark:text-rose-300 border border-rose-200 dark:border-rose-800 font-mono">
             <AlertCircle className="w-3 h-3" /> Overdue
           </span>
         );
       case "sent":
       case "unpaid":
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 dark:bg-amber-950 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 dark:bg-amber-950 dark:text-amber-300 border border-amber-200 dark:border-amber-800 font-mono">
             <Clock className="w-3 h-3" /> Pending
           </span>
         );
       default:
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 font-mono">
             Draft
           </span>
         );
@@ -128,7 +128,7 @@ export default function InvoicesPage() {
   };
 
   return (
-    <div className="flex h-screen bg-zinc-50 dark:bg-zinc-950 overflow-hidden">
+    <div className="flex h-screen bg-stone-50/50 dark:bg-zinc-950 overflow-hidden">
       <Sidebar onOpenSimulator={() => setSimulatorOpen(true)} />
 
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
@@ -140,16 +140,16 @@ export default function InvoicesPage() {
           <a
             href="/api/sheets/export?type=invoices"
             download
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 text-xs font-semibold shadow-sm transition-all"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-200 hover:border-blue-300 dark:hover:border-blue-800 hover:text-blue-600 dark:hover:text-blue-400 text-xs font-semibold shadow-sm transition-all"
           >
-            <Download className="w-3.5 h-3.5" />
+            <Download className="w-3.5 h-3.5 text-blue-500" />
             Export CSV
           </a>
         </Header>
 
         <div className="p-6 space-y-6 max-w-7xl mx-auto w-full pb-16">
           {/* Controls Bar: Filters & Search */}
-          <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="bg-white dark:bg-zinc-900 p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             {/* Filter Pills */}
             <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
               {(
@@ -164,10 +164,10 @@ export default function InvoicesPage() {
                 <button
                   key={tab.id}
                   onClick={() => setFilter(tab.id)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
                     filter === tab.id
-                      ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-2xs font-semibold"
-                      : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+                      ? "bg-blue-600 text-white shadow-sm shadow-blue-600/20 font-semibold"
+                      : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-blue-600 dark:hover:text-blue-400"
                   }`}
                 >
                   {tab.label}
@@ -177,30 +177,30 @@ export default function InvoicesPage() {
 
             {/* Search Input */}
             <div className="relative w-full sm:w-64">
-              <Search className="w-4 h-4 text-zinc-400 absolute left-3 top-2.5" />
+              <Search className="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5" />
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search invoice or client..."
-                className="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                className="w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-850 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors"
               />
             </div>
           </div>
 
           {/* Invoices List Table */}
-          <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm overflow-hidden">
+          <div className="bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200/80 dark:border-zinc-800 shadow-sm overflow-hidden">
             {loading ? (
-              <div className="p-12 text-center text-xs text-zinc-500">Loading invoices...</div>
+              <div className="p-12 text-center text-xs font-mono text-zinc-500">Loading invoices...</div>
             ) : filteredInvoices.length === 0 ? (
               <div className="p-12 text-center text-zinc-500 space-y-3">
-                <FileText className="w-10 h-10 mx-auto text-zinc-400" />
-                <p className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+                <FileText className="w-8 h-8 mx-auto text-blue-400" />
+                <p className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                   No invoices matched your filter.
                 </p>
                 <Link
                   href="/invoices/new"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-xs font-medium shadow-2xs"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium shadow-sm transition-all"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   Create First Invoice
@@ -210,32 +210,32 @@ export default function InvoicesPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="border-b border-zinc-200 dark:border-zinc-800 text-[11px] font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
-                      <th className="py-3.5 px-5">Invoice #</th>
-                      <th className="py-3.5 px-5">Client / Business</th>
-                      <th className="py-3.5 px-5">Issue Date</th>
-                      <th className="py-3.5 px-5">Due Date</th>
-                      <th className="py-3.5 px-5">Total</th>
-                      <th className="py-3.5 px-5">Status</th>
-                      <th className="py-3.5 px-5 text-right">Actions</th>
+                    <tr className="border-b border-zinc-200 dark:border-zinc-800 text-[10px] font-mono text-zinc-400 uppercase tracking-wider">
+                      <th className="py-3 px-4">Invoice #</th>
+                      <th className="py-3 px-4">Client / Business</th>
+                      <th className="py-3 px-4">Issue Date</th>
+                      <th className="py-3 px-4">Due Date</th>
+                      <th className="py-3 px-4">Total</th>
+                      <th className="py-3 px-4">Status</th>
+                      <th className="py-3 px-4 text-right">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800/60 text-xs">
                     {filteredInvoices.map((inv) => (
                       <tr
                         key={inv.id}
-                        className="hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors group"
+                        className="hover:bg-zinc-50/80 dark:hover:bg-zinc-850/40 transition-colors group"
                       >
-                        <td className="py-4 px-5 font-mono font-bold text-zinc-900 dark:text-white">
+                        <td className="py-3.5 px-4 font-mono font-bold text-zinc-900 dark:text-white">
                           <Link
                             href={`/invoices/${inv.id}`}
-                            className="hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center gap-1.5"
+                            className="hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1.5 transition-colors"
                           >
                             {inv.invoiceNumber}
                             {inv.isRecurring && (
                               <span
                                 title={`Recurring: ${inv.recurringInterval}`}
-                                className="inline-flex items-center gap-0.5 text-[10px] px-1.5 py-0.2 rounded bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 font-sans"
+                                className="inline-flex items-center gap-0.5 text-[10px] px-1.5 py-0.2 rounded bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 font-sans"
                               >
                                 <Repeat className="w-3 h-3" />
                                 {inv.recurringInterval}
@@ -244,7 +244,7 @@ export default function InvoicesPage() {
                           </Link>
                         </td>
 
-                        <td className="py-4 px-5">
+                        <td className="py-3.5 px-4">
                           <p className="font-semibold text-zinc-900 dark:text-zinc-200">
                             {inv.clientName}
                           </p>
@@ -255,28 +255,28 @@ export default function InvoicesPage() {
                           )}
                         </td>
 
-                        <td className="py-4 px-5 text-zinc-600 dark:text-zinc-400">
+                        <td className="py-3.5 px-4 text-zinc-600 dark:text-zinc-400 font-mono text-[11px]">
                           {formatDate(inv.issueDate)}
                         </td>
 
-                        <td className="py-4 px-5 text-zinc-600 dark:text-zinc-400">
+                        <td className="py-3.5 px-4 text-zinc-600 dark:text-zinc-400 font-mono text-[11px]">
                           {formatDate(inv.dueDate)}
                         </td>
 
-                        <td className="py-4 px-5 font-mono font-bold text-zinc-900 dark:text-white">
+                        <td className="py-3.5 px-4 font-mono font-bold text-zinc-900 dark:text-white">
                           {formatCurrency(inv.total, inv.currency)}
                         </td>
 
-                        <td className="py-4 px-5">
+                        <td className="py-3.5 px-4">
                           {getStatusBadge(inv.status, inv.dueDate)}
                         </td>
 
-                        <td className="py-4 px-5 text-right">
+                        <td className="py-3.5 px-4 text-right">
                           <div className="flex items-center justify-end gap-1.5">
                             {inv.status !== "paid" && (
                               <button
                                 onClick={() => handleMarkPaid(inv.id)}
-                                className="px-2.5 py-1 rounded bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 border border-emerald-200 dark:border-emerald-800 text-[11px] font-semibold transition-colors"
+                                className="px-2.5 py-1 rounded bg-blue-50 dark:bg-blue-950/80 text-blue-700 dark:text-blue-300 hover:bg-blue-100 border border-blue-200 dark:border-blue-800 text-[11px] font-semibold transition-colors cursor-pointer"
                               >
                                 Mark Paid
                               </button>
@@ -284,11 +284,11 @@ export default function InvoicesPage() {
 
                             <button
                               onClick={() => handleCopyLink(inv.id)}
-                              className="p-1.5 text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                              className="p-1.5 text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                               title="Copy Shareable Public Invoice Link"
                             >
                               {copiedId === inv.id ? (
-                                <span className="text-[10px] font-bold text-emerald-500">Copied!</span>
+                                <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400">Copied!</span>
                               ) : (
                                 <Share2 className="w-3.5 h-3.5" />
                               )}
@@ -296,7 +296,7 @@ export default function InvoicesPage() {
 
                             <Link
                               href={`/invoices/${inv.id}/edit`}
-                              className="p-1.5 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                              className="p-1.5 text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                               title="Edit Invoice"
                             >
                               <Edit className="w-3.5 h-3.5" />
@@ -305,7 +305,7 @@ export default function InvoicesPage() {
                             <Link
                               href={`/view/${inv.id}`}
                               target="_blank"
-                              className="p-1.5 text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                              className="p-1.5 text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                               title="Public View"
                             >
                               <ExternalLink className="w-3.5 h-3.5" />
@@ -313,7 +313,7 @@ export default function InvoicesPage() {
 
                             <button
                               onClick={() => handleDelete(inv.id)}
-                              className="p-1.5 text-zinc-400 hover:text-rose-500 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                              className="p-1.5 text-zinc-400 hover:text-rose-600 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                               title="Delete Invoice"
                             >
                               <Trash2 className="w-3.5 h-3.5" />

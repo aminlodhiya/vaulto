@@ -72,9 +72,9 @@ export function InvoicePDF({
 
   const buttonClasses = {
     primary:
-      "bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm hover:shadow",
+      "bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-500/20 hover:shadow",
     secondary:
-      "bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm hover:shadow",
+      "bg-blue-600 hover:bg-blue-700 text-white shadow-sm shadow-blue-500/20 hover:shadow",
     outline:
       "border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-200",
   }[variant];

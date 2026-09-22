@@ -42,14 +42,14 @@ export function Sidebar({ onOpenSimulator }: SidebarProps) {
       {/* Brand Header */}
       <div className="p-5 border-b border-zinc-800/80 flex items-center justify-between">
         <Link href="/dashboard" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-white text-zinc-950 flex items-center justify-center font-bold text-sm shadow-xs">
+          <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-blue-600/30">
             V
           </div>
           <div>
             <h1 className="font-bold text-white text-sm tracking-tight leading-none">
               Vaulto
             </h1>
-            <span className="text-[10px] text-zinc-400 font-mono tracking-wider uppercase">
+            <span className="text-[10px] text-blue-400 font-mono tracking-wider uppercase">
               Financial OS
             </span>
           </div>
@@ -73,7 +73,7 @@ export function Sidebar({ onOpenSimulator }: SidebarProps) {
               className={cn(
                 "flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all group",
                 isActive
-                  ? "bg-zinc-800 text-white shadow-2xs font-semibold"
+                  ? "bg-blue-600/15 text-blue-400 border-l-2 border-blue-500 font-semibold"
                   : "text-zinc-400 hover:text-white hover:bg-zinc-900"
               )}
             >
@@ -81,7 +81,7 @@ export function Sidebar({ onOpenSimulator }: SidebarProps) {
                 <Icon
                   className={cn(
                     "w-4 h-4 transition-colors",
-                    isActive ? "text-white" : item.highlight ? "text-emerald-400 group-hover:text-emerald-300" : "text-zinc-400 group-hover:text-zinc-200"
+                    isActive ? "text-blue-400" : item.highlight ? "text-blue-400 group-hover:text-blue-300" : "text-zinc-400 group-hover:text-zinc-200"
                   )}
                 />
                 <span className={item.highlight && !isActive ? "text-zinc-200 font-medium" : ""}>
@@ -94,10 +94,10 @@ export function Sidebar({ onOpenSimulator }: SidebarProps) {
                   className={cn(
                     "text-[10px] font-mono px-1.5 py-0.2 rounded font-medium",
                     isActive
-                      ? "bg-zinc-700 text-white"
+                      ? "bg-blue-500/20 text-blue-300 border border-blue-500/30"
                       : item.badge === "Active"
                       ? "bg-emerald-950 text-emerald-300 border border-emerald-800"
-                      : "bg-zinc-800 text-zinc-400"
+                      : "bg-blue-950/60 text-blue-400 border border-blue-900/60"
                   )}
                 >
                   {item.badge}
@@ -112,13 +112,13 @@ export function Sidebar({ onOpenSimulator }: SidebarProps) {
           <div className="pt-4">
             <button
               onClick={onOpenSimulator}
-              className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-zinc-700 hover:text-white transition-all shadow-2xs"
+              className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium bg-blue-950/25 border border-blue-900/40 text-blue-300 hover:border-blue-700 hover:text-white transition-all shadow-2xs cursor-pointer"
             >
               <div className="flex items-center gap-2">
-                <Send className="w-3.5 h-3.5 text-zinc-400" />
+                <Send className="w-3.5 h-3.5 text-blue-400" />
                 <span>Test Telegram Bot</span>
               </div>
-              <span className="text-[9px] font-mono bg-zinc-800 text-zinc-300 px-1.5 py-0.5 rounded">
+              <span className="text-[9px] font-mono bg-blue-900/60 text-blue-300 px-1.5 py-0.5 rounded font-medium">
                 SIM
               </span>
             </button>
@@ -128,12 +128,12 @@ export function Sidebar({ onOpenSimulator }: SidebarProps) {
 
       {/* Subscription Tier Box */}
       <div className="p-3">
-        <div className="p-3 rounded-lg bg-zinc-900 border border-zinc-800">
+        <div className="p-3 rounded-lg bg-zinc-900/90 border border-zinc-800">
           <div className="flex items-center justify-between mb-1">
             <span className="text-[11px] font-mono font-bold text-white uppercase">
               {user?.subscriptionTier || "PRO"} PLAN
             </span>
-            <span className="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-900 px-1.5 py-0.2 rounded">
+            <span className="text-[10px] font-mono bg-blue-950 text-blue-400 border border-blue-800 px-1.5 py-0.2 rounded">
               Active
             </span>
           </div>
@@ -142,7 +142,7 @@ export function Sidebar({ onOpenSimulator }: SidebarProps) {
           </p>
           <Link
             href="/pricing"
-            className="w-full inline-flex items-center justify-center gap-1 py-1.5 px-2 rounded-md bg-zinc-800 hover:bg-zinc-700 text-white font-medium text-xs transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1 py-1.5 px-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs shadow-sm shadow-blue-600/20 transition-all active:scale-[0.98]"
           >
             <Zap className="w-3 h-3" />
             Manage Subscription

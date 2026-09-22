@@ -128,20 +128,20 @@ export function TelegramSimulatorModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fadeIn">
       <div className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl w-full max-w-md shadow-xl overflow-hidden flex flex-col h-[600px] max-h-[90vh]">
         {/* Header */}
-        <div className="bg-zinc-900 text-white px-4 py-3 flex items-center justify-between border-b border-zinc-800">
+        <div className="bg-slate-950 text-white px-4 py-3 flex items-center justify-between border-b border-blue-950/50">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-white">
+            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white shadow-sm shadow-blue-500/20">
               <Bot className="w-4 h-4" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="font-bold text-xs tracking-tight">Vaulto Telegram Bot</h3>
-                <span className="text-[9px] font-mono bg-zinc-800 text-zinc-300 px-1.5 py-0.2 rounded">
+                <span className="text-[9px] font-mono bg-blue-600/20 text-blue-400 border border-blue-500/30 px-1.5 py-0.2 rounded font-semibold">
                   SIMULATOR
                 </span>
               </div>
               <p className="text-[10px] text-zinc-400 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 inline-block animate-pulse"></span>
                 online • nlp parser active
               </p>
             </div>
@@ -167,7 +167,7 @@ export function TelegramSimulatorModal({
               <div
                 className={`max-w-[85%] rounded-lg px-3.5 py-2.5 text-xs ${
                   m.sender === "user"
-                    ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 rounded-br-xs"
+                    ? "bg-blue-600 text-white rounded-br-xs shadow-xs"
                     : "bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700 rounded-bl-xs shadow-2xs"
                 }`}
               >
@@ -178,7 +178,7 @@ export function TelegramSimulatorModal({
 
                 <div
                   className={`text-[9px] mt-1 text-right font-mono ${
-                    m.sender === "user" ? "text-zinc-400 dark:text-zinc-600" : "text-zinc-400"
+                    m.sender === "user" ? "text-blue-100" : "text-zinc-400"
                   }`}
                 >
                   {m.timestamp}
@@ -188,8 +188,8 @@ export function TelegramSimulatorModal({
           ))}
 
           {loading && (
-            <div className="flex items-center gap-2 text-xs text-zinc-500 italic p-2 bg-white dark:bg-zinc-800 rounded-md w-fit border border-zinc-200 dark:border-zinc-700">
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 animate-ping"></span>
+            <div className="flex items-center gap-2 text-xs text-blue-500 italic p-2 bg-white dark:bg-zinc-800 rounded-md w-fit border border-blue-200 dark:border-blue-900/60">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-ping"></span>
               Parsing NLP text...
             </div>
           )}
@@ -202,7 +202,7 @@ export function TelegramSimulatorModal({
             <button
               key={idx}
               onClick={() => handleSend(q)}
-              className="text-[10px] whitespace-nowrap px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 transition-colors shrink-0 font-mono"
+              className="text-[10px] whitespace-nowrap px-2.5 py-1 rounded-md bg-zinc-100 dark:bg-zinc-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 dark:hover:text-blue-400 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 transition-colors shrink-0 font-mono"
             >
               {q}
             </button>
@@ -222,13 +222,13 @@ export function TelegramSimulatorModal({
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type: 'Spent $45 on lunch' or '/summary'..."
-            className="flex-1 px-3 py-2 text-xs rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white outline-none focus:border-zinc-400 dark:focus:border-zinc-600 font-mono"
+            className="flex-1 px-3 py-2 text-xs rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white outline-none focus:ring-1 focus:ring-blue-500 font-mono"
             autoFocus
           />
           <button
             type="submit"
             disabled={!input.trim() || loading}
-            className="w-8 h-8 rounded-lg bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 dark:text-zinc-900 disabled:opacity-50 text-white flex items-center justify-center transition-colors shadow-2xs"
+            className="w-8 h-8 rounded-lg bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50 flex items-center justify-center transition-colors shadow-sm shadow-blue-500/20"
           >
             <Send className="w-3.5 h-3.5" />
           </button>

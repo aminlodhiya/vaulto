@@ -16,14 +16,14 @@ interface ExpenseCategoryChartProps {
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
-  software: "#18181b",
-  travel: "#3f3f46",
-  meals: "#71717a",
-  office: "#a1a1aa",
-  marketing: "#047857",
-  contractor: "#52525b",
-  utilities: "#27272a",
-  other: "#d4d4d8",
+  software: "#2563eb",
+  travel: "#3b82f6",
+  marketing: "#1d4ed8",
+  contractor: "#60a5fa",
+  office: "#64748b",
+  meals: "#475569",
+  utilities: "#94a3b8",
+  other: "#cbd5e1",
 };
 
 export function ExpenseCategoryChart({ data, currency = "USD" }: ExpenseCategoryChartProps) {

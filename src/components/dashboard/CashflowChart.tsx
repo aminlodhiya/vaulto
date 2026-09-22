@@ -55,16 +55,16 @@ export function CashflowChart({ data, currency = "USD" }: CashflowChartProps) {
                 const rev = Number(payload[0]?.value) || 0;
                 const exp = Number(payload[1]?.value) || 0;
                 return (
-                  <div className="bg-[#09090b] border border-zinc-700 p-3 rounded-lg shadow-lg text-xs text-white space-y-1 font-mono">
+                  <div className="bg-[#090d16] border border-blue-900/60 p-3 rounded-lg shadow-xl text-xs text-white space-y-1 font-mono">
                     <p className="font-bold text-zinc-300 border-b border-zinc-800 pb-1">{label}</p>
-                    <p className="text-zinc-200">
+                    <p className="text-blue-400 font-semibold">
                       Revenue: {formatCurrency(rev, currency)}
                     </p>
                     <p className="text-zinc-400">
                       Expenses: {formatCurrency(exp, currency)}
                     </p>
-                    <p className="text-emerald-400 pt-0.5 border-t border-zinc-800 font-bold">
-                      Net Margin: {formatCurrency(rev - exp, currency)}
+                    <p className="text-blue-300 pt-0.5 border-t border-zinc-800 font-bold">
+                      Net Cashflow: {formatCurrency(rev - exp, currency)}
                     </p>
                   </div>
                 );
@@ -81,21 +81,21 @@ export function CashflowChart({ data, currency = "USD" }: CashflowChartProps) {
           <Area
             type="monotone"
             dataKey="revenue"
-            name="Revenue"
-            stroke="#18181b"
+            name="Revenue (Paid)"
+            stroke="#2563eb"
             strokeWidth={2}
-            fill="#18181b"
-            fillOpacity={0.08}
+            fill="#2563eb"
+            fillOpacity={0.12}
           />
           <Area
             type="monotone"
             dataKey="expenses"
             name="Expenses"
-            stroke="#71717a"
+            stroke="#64748b"
             strokeWidth={1.5}
             strokeDasharray="4 4"
-            fill="#71717a"
-            fillOpacity={0.04}
+            fill="#64748b"
+            fillOpacity={0.05}
           />
         </AreaChart>
       </ResponsiveContainer>

@@ -284,6 +284,21 @@
   ],
   "expenses": [
     {
+      "userId": "usr_demo123",
+      "amount": 120,
+      "currency": "USD",
+      "category": "software",
+      "description": "AWS hosting",
+      "merchant": "Aws",
+      "date": "2026-09-22",
+      "tags": [
+        "software"
+      ],
+      "source": "telegram",
+      "id": "exp_mucugcmi011f2um",
+      "createdAt": "2026-09-22T15:43:45.642Z"
+    },
+    {
       "id": "exp_1",
       "userId": "usr_demo123",
       "amount": 145.2,
@@ -384,6 +399,22 @@
     }
   ],
   "telegramLogs": [
+    {
+      "userId": "usr_demo123",
+      "rawText": "AWS hosting $120 #software",
+      "parsedData": {
+        "amount": 120,
+        "category": "software",
+        "merchant": "Aws",
+        "description": "AWS hosting",
+        "currency": "USD",
+        "actionType": "expense"
+      },
+      "success": true,
+      "responseSent": "🧾 <b>Expense Logged!</b>\n\n💰 <b>Amount:</b> $120.00\n📂 <b>Category:</b> SOFTWARE\n🏷️ <b>Merchant:</b> Aws\n📝 <b>Note:</b> AWS hosting at Aws\n\n✨ <i>Auto-synced to your Vaulto dashboard & Google Sheets!</i>",
+      "id": "log_mucugcmjtd7dnwx",
+      "createdAt": "2026-09-22T15:43:45.643Z"
+    },
     {
       "id": "log_1",
       "userId": "usr_demo123",

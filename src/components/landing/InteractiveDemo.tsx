@@ -30,7 +30,7 @@ export function InteractiveDemo() {
     <section id="demo" className="py-20 bg-zinc-100/60 dark:bg-zinc-900/40 border-y border-zinc-200 dark:border-zinc-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-500 mb-2 block">
+          <span className="text-[11px] font-mono uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2 block font-semibold">
             LIVE PARSER ENGINE
           </span>
           <h2 className="text-3xl font-bold text-zinc-950 dark:text-white tracking-tight">
@@ -48,7 +48,7 @@ export function InteractiveDemo() {
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-zinc-100 dark:border-zinc-800">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-md bg-zinc-900 dark:bg-zinc-800 text-white flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-900/60 flex items-center justify-center">
                     <Terminal className="w-3.5 h-3.5" />
                   </div>
                   <div>
@@ -56,7 +56,7 @@ export function InteractiveDemo() {
                     <p className="text-[11px] text-zinc-500 font-mono">nlp_engine: v2.4-active</p>
                   </div>
                 </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-900/60 font-medium">
                   REAL-TIME
                 </span>
               </div>
@@ -72,7 +72,7 @@ export function InteractiveDemo() {
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
                     placeholder="e.g. Spent $45 on lunch at Chipotle"
-                    className="w-full px-3.5 py-2.5 text-xs rounded-lg border border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:focus:ring-white transition-all font-mono"
+                    className="w-full px-3.5 py-2.5 text-xs rounded-lg border border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500 transition-all font-mono"
                   />
                 </div>
               </div>
@@ -83,7 +83,7 @@ export function InteractiveDemo() {
                   <button
                     key={i}
                     onClick={() => setInputText(prompt)}
-                    className="text-[11px] px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 transition-colors border border-zinc-200/80 dark:border-zinc-800 font-mono"
+                    className="text-[11px] px-2.5 py-1 rounded bg-zinc-100 dark:bg-zinc-900 hover:bg-blue-50 hover:text-blue-600 dark:hover:bg-blue-950/60 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-900/60 text-zinc-700 dark:text-zinc-300 transition-colors border border-zinc-200/80 dark:border-zinc-800 font-mono cursor-pointer"
                   >
                     {prompt}
                   </button>
@@ -100,11 +100,11 @@ export function InteractiveDemo() {
                 {parsed.actionType === "expense" && parsed.amount ? (
                   <>
                     <p className="font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5 font-sans">
-                      <CheckCircle className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                      <CheckCircle className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                       Transaction Recorded
                     </p>
                     <p className="text-zinc-600 dark:text-zinc-400">
-                      Amount: <span className="font-bold text-zinc-900 dark:text-white">{formatCurrency(parsed.amount, parsed.currency)}</span>
+                      Amount: <span className="font-bold text-blue-600 dark:text-blue-400 font-mono">{formatCurrency(parsed.amount, parsed.currency)}</span>
                     </p>
                     <p className="text-zinc-600 dark:text-zinc-400">
                       Category: <span className="text-zinc-900 dark:text-zinc-200 uppercase">{parsed.category || "OTHER"}</span>
@@ -122,7 +122,7 @@ export function InteractiveDemo() {
                       Draft Invoice Created for {parsed.clientName || "Client"}
                     </p>
                     <p className="text-zinc-600 dark:text-zinc-400">
-                      Total: {formatCurrency(parsed.amount || 0, parsed.currency)}
+                      Total: <span className="text-blue-600 dark:text-blue-400 font-mono font-bold">{formatCurrency(parsed.amount || 0, parsed.currency)}</span>
                     </p>
                   </>
                 ) : parsed.actionType === "summary" ? (
@@ -130,7 +130,7 @@ export function InteractiveDemo() {
                     <p className="font-bold text-zinc-900 dark:text-zinc-100">Vaulto Financial Overview</p>
                     <p className="text-zinc-600 dark:text-zinc-400">Paid Revenue: $18,443.75</p>
                     <p className="text-zinc-600 dark:text-zinc-400">Total Expenses: $1,406.44</p>
-                    <p className="text-emerald-600 font-bold">Net Cashflow: +$17,037.31</p>
+                    <p className="text-blue-600 dark:text-blue-400 font-bold">Net Cashflow: +$17,037.31</p>
                   </>
                 ) : (
                   <p className="text-zinc-500 font-sans">
@@ -146,7 +146,7 @@ export function InteractiveDemo() {
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-zinc-100 dark:border-zinc-800">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-md bg-zinc-900 dark:bg-zinc-800 text-white flex items-center justify-center">
+                  <div className="w-7 h-7 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-900/60 flex items-center justify-center">
                     <Table className="w-3.5 h-3.5" />
                   </div>
                   <div>
@@ -154,7 +154,7 @@ export function InteractiveDemo() {
                     <p className="text-[11px] text-zinc-500 font-mono">format: json / sheet_row</p>
                   </div>
                 </div>
-                <span className="text-xs text-zinc-500 font-mono">
+                <span className="text-xs text-blue-600 dark:text-blue-400 font-mono font-medium">
                   google_sheets_v4
                 </span>
               </div>
@@ -163,7 +163,7 @@ export function InteractiveDemo() {
                 <div className="grid grid-cols-2 gap-3">
                   <div className="p-3 bg-zinc-50 dark:bg-zinc-900 rounded-lg border border-zinc-200 dark:border-zinc-800">
                     <span className="text-[10px] text-zinc-500 uppercase font-mono block">Amount Value</span>
-                    <span className="text-base font-bold font-mono text-zinc-900 dark:text-white">
+                    <span className="text-base font-bold font-mono text-blue-600 dark:text-blue-400">
                       {parsed.amount ? formatCurrency(parsed.amount, parsed.currency) : "—"}
                     </span>
                   </div>
@@ -196,7 +196,7 @@ export function InteractiveDemo() {
               <span className="text-xs text-zinc-500">Ready to automate your financial records?</span>
               <a
                 href="/register"
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-zinc-900 dark:text-white hover:underline"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
               >
                 Create Account <ArrowRight className="w-3.5 h-3.5" />
               </a>

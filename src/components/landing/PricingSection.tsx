@@ -110,7 +110,7 @@ export function PricingSection() {
     <section id="pricing" className="py-24 bg-zinc-50 dark:bg-zinc-900/40 border-t border-zinc-200 dark:border-zinc-800">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-500 mb-2 block">
+          <span className="text-[11px] font-mono uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2 block font-semibold">
             TRANSPARENT PRICING
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-zinc-950 dark:text-white tracking-tight">
@@ -124,7 +124,7 @@ export function PricingSection() {
           <div className="mt-8 inline-flex items-center gap-1 bg-zinc-200/80 dark:bg-zinc-800 p-1 rounded-lg border border-zinc-200 dark:border-zinc-700">
             <button
               onClick={() => setAnnual(false)}
-              className={`px-3.5 py-1.5 rounded-md text-xs font-medium transition-all ${
+              className={`px-3.5 py-1.5 rounded-md text-xs font-medium transition-all cursor-pointer ${
                 !annual
                   ? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-2xs font-semibold"
                   : "text-zinc-600 dark:text-zinc-400"
@@ -134,14 +134,14 @@ export function PricingSection() {
             </button>
             <button
               onClick={() => setAnnual(true)}
-              className={`px-3.5 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 ${
+              className={`px-3.5 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
                 annual
                   ? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-2xs font-semibold"
                   : "text-zinc-600 dark:text-zinc-400"
               }`}
             >
               Annual Billing
-              <span className="text-[10px] bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-1.5 py-0.2 rounded font-mono">
+              <span className="text-[10px] bg-blue-600 text-white px-1.5 py-0.2 rounded font-mono font-medium">
                 -20%
               </span>
             </button>
@@ -157,10 +157,14 @@ export function PricingSection() {
             return (
               <div
                 key={p.id}
-                className={`bg-white dark:bg-zinc-950 rounded-xl p-8 border flex flex-col justify-between relative transition-all ${p.color}`}
+                className={`bg-white dark:bg-zinc-950 rounded-xl p-8 border flex flex-col justify-between relative transition-all ${
+                  p.popular
+                    ? "border-blue-500/80 dark:border-blue-500 shadow-lg shadow-blue-500/10 ring-1 ring-blue-500/30"
+                    : "border-zinc-200 dark:border-zinc-800"
+                }`}
               >
                 {p.popular && (
-                  <div className="absolute -top-3 left-6 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded font-bold shadow-xs">
+                  <div className="absolute -top-3 left-6 bg-blue-600 text-white text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded font-bold shadow-xs">
                     {p.badge}
                   </div>
                 )}
@@ -171,7 +175,7 @@ export function PricingSection() {
                       {p.name}
                     </h3>
                     {isCurrentPlan && (
-                      <span className="text-[10px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-bold px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-700">
+                      <span className="text-[10px] font-mono bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 font-bold px-2 py-0.5 rounded border border-blue-200 dark:border-blue-900/60">
                         ACTIVE
                       </span>
                     )}
@@ -182,7 +186,7 @@ export function PricingSection() {
                   </p>
 
                   <div className="flex items-baseline gap-1 mb-6 pb-6 border-b border-zinc-100 dark:border-zinc-800">
-                    <span className="text-4xl font-bold font-mono text-zinc-900 dark:text-white">
+                    <span className={`text-4xl font-bold font-mono ${p.popular ? "text-blue-600 dark:text-blue-400" : "text-zinc-900 dark:text-white"}`}>
                       {price}
                     </span>
                     {p.id !== "free" && (
@@ -195,7 +199,7 @@ export function PricingSection() {
                   <ul className="space-y-3 mb-8 text-xs text-zinc-700 dark:text-zinc-300">
                     {p.features.map((feat, fi) => (
                       <li key={fi} className="flex items-start gap-2.5">
-                        <Check className="w-4 h-4 text-zinc-900 dark:text-white shrink-0 mt-0.5" />
+                        <Check className={`w-4 h-4 shrink-0 mt-0.5 ${p.popular ? "text-blue-600 dark:text-blue-400" : "text-zinc-900 dark:text-white"}`} />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -206,9 +210,9 @@ export function PricingSection() {
                   <button
                     onClick={() => handleCheckout(p.id as any)}
                     disabled={upgradingPlan === p.id || isCurrentPlan}
-                    className={`w-full py-2.5 px-4 rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-2 shadow-2xs ${
+                    className={`w-full py-2.5 px-4 rounded-lg text-xs font-medium transition-all flex items-center justify-center gap-2 shadow-2xs active:scale-[0.98] ${
                       p.popular
-                        ? "bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 font-semibold"
+                        ? "bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-md shadow-blue-600/25"
                         : "bg-zinc-100 hover:bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-750"
                     } ${isCurrentPlan ? "opacity-50 cursor-default" : ""}`}
                   >

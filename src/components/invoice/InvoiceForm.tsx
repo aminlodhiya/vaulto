@@ -272,7 +272,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
           <button
             onClick={() => handleSave("sent")}
             disabled={saving}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 text-xs font-medium shadow-2xs transition-all"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-sm shadow-blue-500/20 transition-all active:scale-[0.98]"
           >
             <Save className="w-3.5 h-3.5" />
             {saving ? "Saving..." : isEditMode ? "Update Invoice" : "Save & Finalize"}
@@ -292,7 +292,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
           <div className="bg-white dark:bg-[#0c0d0e] p-5 rounded-xl border border-zinc-200/80 dark:border-zinc-850 shadow-2xs space-y-4">
             <div className="flex items-center justify-between">
               <label className="text-[11px] font-mono font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-zinc-500" />
+                <Sparkles className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 Select Template
               </label>
               <span className="text-[11px] text-zinc-500">Pick layout typography</span>
@@ -301,7 +301,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               {(
                 [
-                  { id: "modern", label: "Modern Swiss", color: "bg-zinc-900 dark:bg-white" },
+                  { id: "modern", label: "Modern Sapphire", color: "bg-blue-600" },
                   { id: "emerald", label: "Racing Green", color: "bg-[#0f291e]" },
                   { id: "executive", label: "Executive Dark", color: "bg-zinc-800" },
                   { id: "minimal", label: "Minimalist Mono", color: "bg-zinc-400" },
@@ -313,7 +313,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                   onClick={() => setFormData({ ...formData, template: t.id as InvoiceTemplate })}
                   className={`p-3 rounded-lg border text-left transition-all ${
                     formData.template === t.id
-                      ? "border-zinc-900 dark:border-white ring-1 ring-zinc-900/10 dark:ring-white/20 bg-zinc-100 dark:bg-zinc-850"
+                      ? "border-blue-600 dark:border-blue-500 ring-1 ring-blue-500/30 bg-blue-50/40 dark:bg-blue-950/30 shadow-xs"
                       : "border-zinc-200 dark:border-zinc-800 hover:border-zinc-300"
                   }`}
                 >
@@ -327,7 +327,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
           {/* Invoice Meta & Dates */}
           <div className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
             <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-indigo-500" />
+              <Calendar className="w-4 h-4 text-blue-600 dark:text-blue-400" />
               Invoice Details
             </h3>
 
@@ -341,7 +341,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                   value={formData.invoiceNumber}
                   onChange={(e) => setFormData({ ...formData, invoiceNumber: e.target.value })}
                   placeholder="Auto-generated (e.g. INV-2026-0005)"
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500 font-mono"
                 />
               </div>
 
@@ -353,7 +353,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                   type="date"
                   value={formData.issueDate}
                   onChange={(e) => setFormData({ ...formData, issueDate: e.target.value })}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
 
@@ -365,7 +365,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                   type="date"
                   value={formData.dueDate}
                   onChange={(e) => setFormData({ ...formData, dueDate: e.target.value })}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
             </div>
@@ -378,7 +378,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                 <select
                   value={formData.currency}
                   onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 >
                   <option value="USD">USD ($) - US Dollar</option>
                   <option value="EUR">EUR (€) - Euro</option>
@@ -396,7 +396,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                 <select
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value as any })}
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 >
                   <option value="unpaid">Unpaid</option>
                   <option value="paid">Paid</option>
@@ -411,7 +411,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
             <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Repeat className="w-4 h-4 text-indigo-500" />
+                  <Repeat className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                   <div>
                     <p className="text-xs font-bold text-zinc-900 dark:text-zinc-100">Recurring Invoice</p>
                     <p className="text-[11px] text-zinc-500">Automatically repeat this invoice on schedule</p>
@@ -421,20 +421,20 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                   type="checkbox"
                   checked={formData.isRecurring}
                   onChange={(e) => setFormData({ ...formData, isRecurring: e.target.checked })}
-                  className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500"
+                  className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500"
                 />
               </div>
 
               {formData.isRecurring && (
-                <div className="mt-3 grid grid-cols-2 gap-3 p-3 bg-indigo-50/60 dark:bg-indigo-950/40 rounded-lg border border-indigo-100 dark:border-indigo-900/60">
+                <div className="mt-3 grid grid-cols-2 gap-3 p-3 bg-blue-50/60 dark:bg-blue-950/40 rounded-lg border border-blue-100 dark:border-blue-900/60">
                   <div>
-                    <label className="block text-[11px] font-semibold text-indigo-900 dark:text-indigo-200 mb-1">
+                    <label className="block text-[11px] font-semibold text-blue-900 dark:text-blue-200 mb-1">
                       Billing Interval
                     </label>
                     <select
                       value={formData.recurringInterval}
                       onChange={(e) => setFormData({ ...formData, recurringInterval: e.target.value as RecurringInterval })}
-                      className="w-full px-2.5 py-1.5 text-xs rounded border border-indigo-200 dark:border-indigo-800 bg-white dark:bg-zinc-900"
+                      className="w-full px-2.5 py-1.5 text-xs rounded border border-blue-200 dark:border-blue-800 bg-white dark:bg-zinc-900 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
                       <option value="weekly">Weekly</option>
                       <option value="monthly">Monthly</option>
@@ -443,14 +443,14 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-indigo-900 dark:text-indigo-200 mb-1">
+                    <label className="block text-[11px] font-semibold text-blue-900 dark:text-blue-200 mb-1">
                       Next Billing Date
                     </label>
                     <input
                       type="date"
                       value={formData.nextRecurringDate}
                       onChange={(e) => setFormData({ ...formData, nextRecurringDate: e.target.value })}
-                      className="w-full px-2.5 py-1.5 text-xs rounded border border-indigo-200 dark:border-indigo-800 bg-white dark:bg-zinc-900"
+                      className="w-full px-2.5 py-1.5 text-xs rounded border border-blue-200 dark:border-blue-800 bg-white dark:bg-zinc-900 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     />
                   </div>
                 </div>
@@ -462,14 +462,14 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
           <div className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-indigo-500" />
+                <Building2 className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 Client (Billed To)
               </h3>
               {clients.length > 0 && (
                 <select
                   onChange={(e) => handleSelectClient(e.target.value)}
                   defaultValue=""
-                  className="text-xs px-2 py-1 rounded border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800"
+                  className="text-xs px-2 py-1 rounded border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 >
                   <option value="" disabled>
                     Choose saved client...
@@ -493,7 +493,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                   value={formData.clientName}
                   onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
                   placeholder="e.g. Sarah Jenkins"
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
               <div>
@@ -505,7 +505,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                   value={formData.clientCompany}
                   onChange={(e) => setFormData({ ...formData, clientCompany: e.target.value })}
                   placeholder="e.g. Acme Innovations Inc."
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
             </div>
@@ -520,7 +520,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                   value={formData.clientEmail}
                   onChange={(e) => setFormData({ ...formData, clientEmail: e.target.value })}
                   placeholder="sarah@acme.com"
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
               <div>
@@ -532,7 +532,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                   value={formData.clientTaxId}
                   onChange={(e) => setFormData({ ...formData, clientTaxId: e.target.value })}
                   placeholder="e.g. TX-998822"
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
             </div>
@@ -546,7 +546,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                 value={formData.clientAddress}
                 onChange={(e) => setFormData({ ...formData, clientAddress: e.target.value })}
                 placeholder="100 Tech Blvd, Austin, TX 78701"
-                className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
           </div>
@@ -555,13 +555,13 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
           <div className="bg-white dark:bg-zinc-900 p-5 rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-4">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
-                <DollarSign className="w-4 h-4 text-indigo-500" />
+                <DollarSign className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 Line Items
               </h3>
               <button
                 type="button"
                 onClick={handleAddItem}
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 text-xs font-semibold transition-colors"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 hover:bg-blue-100 text-xs font-semibold transition-colors"
               >
                 <Plus className="w-3.5 h-3.5" />
                 Add Item
@@ -581,7 +581,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                         value={item.name}
                         onChange={(e) => handleItemChange(idx, "name", e.target.value)}
                         placeholder="Item name / service..."
-                        className="w-full font-semibold text-xs px-2.5 py-1.5 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                        className="w-full font-semibold text-xs px-2.5 py-1.5 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
                     {items.length > 1 && (
@@ -601,7 +601,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                     value={item.description || ""}
                     onChange={(e) => handleItemChange(idx, "description", e.target.value)}
                     placeholder="Description or scope notes..."
-                    className="w-full text-[11px] px-2.5 py-1.5 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                    className="w-full text-[11px] px-2.5 py-1.5 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
                   />
 
                   <div className="grid grid-cols-3 gap-2 pt-1">
@@ -612,7 +612,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                         min="1"
                         value={item.quantity}
                         onChange={(e) => handleItemChange(idx, "quantity", e.target.value)}
-                        className="w-full px-2 py-1 text-xs font-mono rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700"
+                        className="w-full px-2 py-1 text-xs font-mono rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
                     <div>
@@ -622,12 +622,12 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                         step="any"
                         value={item.unitPrice}
                         onChange={(e) => handleItemChange(idx, "unitPrice", e.target.value)}
-                        className="w-full px-2 py-1 text-xs font-mono rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700"
+                        className="w-full px-2 py-1 text-xs font-mono rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
                     <div>
                       <label className="block text-[10px] text-zinc-500">Total</label>
-                      <div className="px-2 py-1 text-xs font-mono font-bold text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800 rounded">
+                      <div className="px-2 py-1 text-xs font-mono font-bold text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-950/40 rounded border border-blue-100 dark:border-blue-900/30">
                         {formatCurrency(item.total || item.quantity * item.unitPrice, formData.currency)}
                       </div>
                     </div>
@@ -649,7 +649,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                     max="100"
                     value={formData.discountRate}
                     onChange={(e) => setFormData({ ...formData, discountRate: parseFloat(e.target.value) || 0 })}
-                    className="w-full px-2.5 py-1.5 text-xs font-mono rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800"
+                    className="w-full px-2.5 py-1.5 text-xs font-mono rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -662,7 +662,7 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                     max="100"
                     value={formData.taxRate}
                     onChange={(e) => setFormData({ ...formData, taxRate: parseFloat(e.target.value) || 0 })}
-                    className="w-full px-2.5 py-1.5 text-xs font-mono rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800"
+                    className="w-full px-2.5 py-1.5 text-xs font-mono rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                   />
                 </div>
                 <div>
@@ -674,14 +674,14 @@ export function InvoiceForm({ initialInvoice, isEditMode = false }: InvoiceFormP
                     min="0"
                     value={formData.shipping}
                     onChange={(e) => setFormData({ ...formData, shipping: parseFloat(e.target.value) || 0 })}
-                    className="w-full px-2.5 py-1.5 text-xs font-mono rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800"
+                    className="w-full px-2.5 py-1.5 text-xs font-mono rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
                   />
                 </div>
               </div>
 
-              <div className="p-3 bg-zinc-100 dark:bg-zinc-800/80 rounded-lg flex items-center justify-between text-sm font-bold">
+              <div className="p-3 bg-blue-50/50 dark:bg-blue-950/40 rounded-lg flex items-center justify-between text-sm font-bold border border-blue-100 dark:border-blue-900/40">
                 <span className="text-zinc-700 dark:text-zinc-300">Grand Total:</span>
-                <span className="text-indigo-600 dark:text-indigo-400 font-mono text-base">
+                <span className="text-blue-600 dark:text-blue-400 font-mono text-base font-bold">
                   {formatCurrency(total, formData.currency)}
                 </span>
               </div>

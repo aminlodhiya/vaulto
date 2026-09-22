@@ -34,7 +34,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex flex-col justify-center items-center py-12 px-4 sm:px-6 lg:px-8 bg-stone-50/50 dark:bg-zinc-950">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
         <Link href="/" className="inline-flex items-center gap-2.5 mb-6 group">
-          <div className="w-9 h-9 rounded-lg bg-zinc-900 dark:bg-white flex items-center justify-center text-white dark:text-zinc-950 font-bold shadow-sm transition-transform group-hover:scale-105">
+          <div className="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold shadow-sm shadow-blue-500/20 transition-transform group-hover:scale-105">
             <Receipt className="w-4 h-4" />
           </div>
           <span className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white">
@@ -46,7 +46,7 @@ export default function LoginPage() {
         </h2>
         <p className="mt-1.5 text-xs text-zinc-500">
           Or{" "}
-          <Link href="/register" className="font-medium text-zinc-900 dark:text-white hover:underline underline-offset-4">
+          <Link href="/register" className="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline underline-offset-4">
             create a new account for free
           </Link>
         </p>
@@ -61,13 +61,13 @@ export default function LoginPage() {
           )}
 
           {/* 1-Click Demo Login Banner */}
-          <div className="mb-6 p-4 bg-zinc-50 dark:bg-zinc-850/60 rounded-xl border border-zinc-200 dark:border-zinc-750 flex flex-col gap-2.5">
+          <div className="mb-6 p-4 bg-blue-50/50 dark:bg-blue-950/30 rounded-xl border border-blue-200/60 dark:border-blue-900/40 flex flex-col gap-2.5">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-zinc-900 dark:text-zinc-100 flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <ShieldCheck className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 Preconfigured Sandbox Demo
               </span>
-              <span className="text-[10px] bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 px-2 py-0.5 rounded font-mono font-medium">
+              <span className="text-[10px] bg-blue-600 text-white px-2 py-0.5 rounded font-mono font-semibold shadow-xs">
                 INSTANT
               </span>
             </div>
@@ -78,7 +78,7 @@ export default function LoginPage() {
               type="button"
               onClick={handleDemoLogin}
               disabled={loading}
-              className="w-full py-2 px-3 rounded-lg bg-zinc-900 hover:bg-black dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-medium text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm active:scale-[0.98]"
+              className="w-full py-2 px-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition-all flex items-center justify-center gap-1.5 shadow-sm shadow-blue-500/20 active:scale-[0.98]"
             >
               Explore Live Demo Workspace →
             </button>
@@ -108,7 +108,7 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@company.com"
-                  className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/60 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 font-mono transition-colors"
+                  className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/60 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-1 focus:ring-blue-500 font-mono transition-colors"
                 />
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/60 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 font-mono transition-colors"
+                  className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/60 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-1 focus:ring-blue-500 font-mono transition-colors"
                 />
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-2.5 px-4 rounded-lg bg-zinc-900 hover:bg-black text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 font-medium text-xs shadow-sm transition-all flex items-center justify-center gap-2 active:scale-[0.98]"
+              className="w-full py-2.5 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-sm shadow-blue-500/20 transition-all flex items-center justify-center gap-2 active:scale-[0.98]"
             >
               {loading ? "Signing in..." : "Sign In to Vaulto"}
               <ArrowRight className="w-3.5 h-3.5" />

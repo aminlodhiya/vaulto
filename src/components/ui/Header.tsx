@@ -71,18 +71,18 @@ export function Header({ title, subtitle, onOpenSimulator, children }: HeaderPro
           {onOpenSimulator && (
             <button
               onClick={onOpenSimulator}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-750 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-800 font-medium text-xs transition-colors shadow-2xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50/60 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-900/60 text-blue-700 dark:text-blue-300 hover:bg-blue-100/70 dark:hover:bg-blue-900/40 font-medium text-xs transition-colors shadow-2xs cursor-pointer"
             >
-              <Send className="w-3 h-3 text-zinc-500" />
+              <Send className="w-3 h-3 text-blue-600 dark:text-blue-400" />
               <span>Telegram Bot</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
             </button>
           )}
 
           {/* New Invoice Button */}
           <Link
             href="/invoices/new"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 font-medium text-xs shadow-2xs transition-all"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs shadow-sm shadow-blue-600/25 transition-all active:scale-[0.98]"
           >
             <Plus className="w-3.5 h-3.5" />
             New Invoice

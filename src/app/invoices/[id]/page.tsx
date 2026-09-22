@@ -87,7 +87,7 @@ export default function InvoiceDetailPage({ params }: { params: Promise<{ id: st
     return (
       <div className="flex h-screen bg-zinc-50 dark:bg-zinc-950 items-center justify-center flex-col gap-3">
         <p className="text-sm font-semibold">Invoice not found.</p>
-        <Link href="/invoices" className="text-xs text-indigo-600 underline">
+        <Link href="/invoices" className="text-xs text-blue-600 dark:text-blue-400 hover:underline">
           Back to invoices
         </Link>
       </div>
@@ -110,11 +110,11 @@ export default function InvoiceDetailPage({ params }: { params: Promise<{ id: st
               </Link>
               <div>
                 <h2 className="text-base font-bold text-zinc-900 dark:text-white flex items-center gap-2">
-                  <span>{invoice.invoiceNumber}</span>
+                  <span className="font-mono text-blue-600 dark:text-blue-400">{invoice.invoiceNumber}</span>
                   <span
                     className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${
                       invoice.status === "paid"
-                        ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
+                        ? "bg-blue-50 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-200 dark:border-blue-800"
                         : "bg-amber-50 text-amber-700 dark:bg-amber-950 dark:text-amber-300"
                     }`}
                   >
@@ -131,7 +131,7 @@ export default function InvoiceDetailPage({ params }: { params: Promise<{ id: st
               {invoice.status !== "paid" && (
                 <button
                   onClick={handleMarkPaid}
-                  className="px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-colors flex items-center gap-1.5 shadow-sm"
+                  className="px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition-colors flex items-center gap-1.5 shadow-sm shadow-blue-500/20"
                 >
                   <CheckCircle className="w-3.5 h-3.5" />
                   Mark as Paid
@@ -148,7 +148,7 @@ export default function InvoiceDetailPage({ params }: { params: Promise<{ id: st
                 onClick={handleCopyLink}
                 className="px-3 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-200 font-semibold text-xs transition-colors flex items-center gap-1.5"
               >
-                <Share2 className="w-3.5 h-3.5 text-indigo-500" />
+                <Share2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 {copied ? "Link Copied!" : "Share Link"}
               </button>
 

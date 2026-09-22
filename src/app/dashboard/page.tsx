@@ -74,9 +74,9 @@ export default function DashboardPage() {
           <a
             href="/api/sheets/export?type=summary"
             download
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-250 dark:border-zinc-750 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 text-xs font-medium shadow-2xs transition-all"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-250 dark:border-zinc-750 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-200 hover:border-blue-300 dark:hover:border-blue-800 hover:text-blue-600 dark:hover:text-blue-400 text-xs font-medium shadow-2xs transition-all"
           >
-            <Download className="w-3.5 h-3.5 text-zinc-400" />
+            <Download className="w-3.5 h-3.5 text-blue-500" />
             Export P&L Report
           </a>
         </Header>
@@ -84,16 +84,16 @@ export default function DashboardPage() {
         <div className="p-6 space-y-6 max-w-7xl mx-auto w-full pb-16">
           {/* Top Telegram Pairing Banner if not paired */}
           {!user?.telegramConnected && (
-            <div className="p-4 rounded-xl bg-zinc-900 text-white border border-zinc-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="p-4 rounded-xl bg-blue-950/40 text-white border border-blue-900/60 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-white shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-blue-900/60 border border-blue-700/60 flex items-center justify-center text-blue-300 shrink-0">
                   <Send className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="text-xs font-bold font-sans">Telegram Bot Pairing</h3>
-                  <p className="text-[11px] text-zinc-400">
+                  <h3 className="text-xs font-bold font-sans text-blue-200">Telegram Bot Pairing</h3>
+                  <p className="text-[11px] text-zinc-300">
                     Log receipts in seconds by sending messages. Your 6-digit sync token is{" "}
-                    <span className="font-mono font-bold bg-zinc-800 px-1.5 py-0.2 rounded text-zinc-200">
+                    <span className="font-mono font-bold bg-blue-900/80 px-1.5 py-0.2 rounded text-blue-200 border border-blue-700/60">
                       {user?.telegramSyncToken || "748291"}
                     </span>
                   </p>
@@ -102,13 +102,13 @@ export default function DashboardPage() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setSimulatorOpen(true)}
-                  className="px-3 py-1.5 rounded-md bg-white text-zinc-950 font-medium text-xs transition-colors hover:bg-zinc-100"
+                  className="px-3 py-1.5 rounded-md bg-blue-600 text-white font-medium text-xs transition-colors hover:bg-blue-500 cursor-pointer shadow-sm shadow-blue-600/30"
                 >
                   Test Bot Simulator
                 </button>
                 <Link
                   href="/telegram"
-                  className="px-3 py-1.5 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium text-xs transition-colors"
+                  className="px-3 py-1.5 rounded-md bg-blue-900/60 hover:bg-blue-900 text-blue-200 font-medium text-xs transition-colors border border-blue-800"
                 >
                   Setup Guide
                 </Link>
@@ -170,7 +170,7 @@ export default function DashboardPage() {
                   </h3>
                   <p className="text-[11px] text-zinc-500">Revenue vs. Expenses breakdown</p>
                 </div>
-                <span className="text-[10px] font-mono text-zinc-500 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-2 py-0.5 rounded border border-blue-200/60 dark:border-blue-900/50">
                   Monthly
                 </span>
               </div>
@@ -189,7 +189,7 @@ export default function DashboardPage() {
                 </div>
                 <Link
                   href="/expenses"
-                  className="text-xs text-zinc-900 dark:text-zinc-200 font-medium hover:underline"
+                  className="text-xs text-blue-600 dark:text-blue-400 font-medium hover:underline"
                 >
                   View All
                 </Link>
@@ -216,7 +216,7 @@ export default function DashboardPage() {
               <div className="flex items-center gap-3">
                 <Link
                   href="/invoices"
-                  className="text-xs font-medium text-zinc-900 dark:text-zinc-200 hover:underline flex items-center gap-1"
+                  className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
                 >
                   All Invoices <ArrowUpRight className="w-3.5 h-3.5" />
                 </Link>
@@ -231,9 +231,9 @@ export default function DashboardPage() {
 
           {/* Quick Actions Footer Banner */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-5 bg-white dark:bg-[#0c0d0e] rounded-xl border border-zinc-200/80 dark:border-zinc-850 flex flex-col justify-between shadow-2xs">
+            <div className="p-5 bg-white dark:bg-[#0c0d0e] rounded-xl border border-zinc-200/80 dark:border-zinc-850 hover:border-blue-300 dark:hover:border-blue-800 transition-all flex flex-col justify-between shadow-2xs">
               <div>
-                <div className="w-7 h-7 rounded-md bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center mb-3">
+                <div className="w-7 h-7 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/60 flex items-center justify-center mb-3">
                   <Plus className="w-3.5 h-3.5" />
                 </div>
                 <h4 className="font-bold text-xs text-zinc-900 dark:text-white">Draft Client Invoice</h4>
@@ -243,15 +243,15 @@ export default function DashboardPage() {
               </div>
               <Link
                 href="/invoices/new"
-                className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-zinc-900 dark:text-zinc-200 hover:underline"
+                className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
               >
                 New Invoice Builder →
               </Link>
             </div>
 
-            <div className="p-5 bg-white dark:bg-[#0c0d0e] rounded-xl border border-zinc-200/80 dark:border-zinc-850 flex flex-col justify-between shadow-2xs">
+            <div className="p-5 bg-white dark:bg-[#0c0d0e] rounded-xl border border-zinc-200/80 dark:border-zinc-850 hover:border-blue-300 dark:hover:border-blue-800 transition-all flex flex-col justify-between shadow-2xs">
               <div>
-                <div className="w-7 h-7 rounded-md bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center mb-3">
+                <div className="w-7 h-7 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/60 flex items-center justify-center mb-3">
                   <Send className="w-3.5 h-3.5" />
                 </div>
                 <h4 className="font-bold text-xs text-zinc-900 dark:text-white">Telegram Sidekick</h4>
@@ -261,15 +261,15 @@ export default function DashboardPage() {
               </div>
               <button
                 onClick={() => setSimulatorOpen(true)}
-                className="mt-4 text-left inline-flex items-center gap-1 text-xs font-medium text-zinc-900 dark:text-zinc-200 hover:underline"
+                className="mt-4 text-left inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
               >
                 Launch Bot Simulator →
               </button>
             </div>
 
-            <div className="p-5 bg-white dark:bg-[#0c0d0e] rounded-xl border border-zinc-200/80 dark:border-zinc-850 flex flex-col justify-between shadow-2xs">
+            <div className="p-5 bg-white dark:bg-[#0c0d0e] rounded-xl border border-zinc-200/80 dark:border-zinc-850 hover:border-blue-300 dark:hover:border-blue-800 transition-all flex flex-col justify-between shadow-2xs">
               <div>
-                <div className="w-7 h-7 rounded-md bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center mb-3">
+                <div className="w-7 h-7 rounded-md bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200/60 dark:border-blue-900/60 flex items-center justify-center mb-3">
                   <Table className="w-3.5 h-3.5" />
                 </div>
                 <h4 className="font-bold text-xs text-zinc-900 dark:text-white">Google Sheets Sync</h4>
@@ -279,7 +279,7 @@ export default function DashboardPage() {
               </div>
               <Link
                 href="/sheets"
-                className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-zinc-900 dark:text-zinc-200 hover:underline"
+                className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
               >
                 Configure Sheets Sync →
               </Link>

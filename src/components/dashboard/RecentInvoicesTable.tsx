@@ -56,7 +56,7 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
     switch (actualStatus) {
       case "paid":
         return (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-blue-50 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-200 dark:border-blue-900/60 font-medium">
             Paid
           </span>
         );
@@ -86,11 +86,11 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
   if (invoices.length === 0) {
     return (
       <div className="p-8 text-center text-zinc-500 space-y-3">
-        <FileText className="w-8 h-8 mx-auto text-zinc-400" />
+        <FileText className="w-8 h-8 mx-auto text-blue-400" />
         <p className="text-xs">No invoices created yet.</p>
         <Link
           href="/invoices/new"
-          className="inline-block px-3 py-1.5 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-medium"
+          className="inline-block px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium shadow-sm transition-all"
         >
           Create Invoice
         </Link>
@@ -120,11 +120,11 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
               <td className="py-3 px-4 font-mono font-bold text-zinc-900 dark:text-white">
                 <Link
                   href={`/invoices/${inv.id}`}
-                  className="hover:underline flex items-center gap-1"
+                  className="hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-1 transition-colors"
                 >
                   {inv.invoiceNumber}
                   {inv.isRecurring && (
-                    <span className="text-[10px] text-zinc-400 font-sans">
+                    <span className="text-[10px] text-blue-400 font-sans">
                       (🔄)
                     </span>
                   )}
@@ -160,7 +160,7 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
                     <button
                       onClick={(e) => handleMarkPaid(e, inv.id)}
                       disabled={updatingId === inv.id}
-                      className="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 text-[10px] font-mono transition-colors"
+                      className="px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/70 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900 border border-blue-200 dark:border-blue-900/60 text-[10px] font-mono transition-colors cursor-pointer"
                     >
                       {updatingId === inv.id ? "..." : "Mark Paid"}
                     </button>
@@ -169,7 +169,7 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
                   <Link
                     href={`/view/${inv.id}`}
                     target="_blank"
-                    className="p-1 text-zinc-400 hover:text-zinc-900 dark:hover:text-white rounded transition-colors"
+                    className="p-1 text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 rounded transition-colors"
                     title="Public Invoice View"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -177,7 +177,7 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
 
                   <Link
                     href={`/invoices/${inv.id}`}
-                    className="p-1 text-zinc-400 hover:text-zinc-900 dark:hover:text-white rounded transition-colors"
+                    className="p-1 text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 rounded transition-colors"
                     title="Details"
                   >
                     <ArrowUpRight className="w-4 h-4" />

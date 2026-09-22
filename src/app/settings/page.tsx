@@ -99,7 +99,7 @@ export default function SettingsPage() {
               <div className="flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-zinc-800">
                 <div>
                   <h3 className="text-sm font-semibold text-zinc-900 dark:text-white flex items-center gap-2">
-                    <Building className="w-4 h-4 text-zinc-900 dark:text-white" />
+                    <Building className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                     Entity & Sender Profile
                   </h3>
                   <p className="text-xs text-zinc-500 mt-0.5">
@@ -228,7 +228,7 @@ export default function SettingsPage() {
             <div className="bg-white dark:bg-zinc-900 p-6 rounded-xl border border-zinc-200/80 dark:border-zinc-800 shadow-sm space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-zinc-800">
                 <div className="flex items-center gap-2">
-                  <CreditCard className="w-4 h-4 text-zinc-900 dark:text-white" />
+                  <CreditCard className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                   <div>
                     <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">
                       Subscription & Billing Tier
@@ -237,7 +237,7 @@ export default function SettingsPage() {
                   </div>
                 </div>
 
-                <span className="text-[10px] font-mono font-medium px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                <span className="text-[10px] font-mono font-semibold px-2.5 py-1 rounded bg-blue-50 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
                   {user?.subscriptionTier || "PRO"} ACTIVE
                 </span>
               </div>
@@ -262,7 +262,7 @@ export default function SettingsPage() {
                   </button>
                   <a
                     href="/pricing"
-                    className="px-3.5 py-1.5 rounded-lg bg-zinc-900 hover:bg-black dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 text-xs font-medium transition-colors"
+                    className="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm shadow-blue-500/20 transition-colors"
                   >
                     Change Plan
                   </a>
@@ -273,7 +273,7 @@ export default function SettingsPage() {
             {/* Save Button Bar */}
             <div className="flex items-center justify-end gap-3 pt-2">
               {savedSuccess && (
-                <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1 font-mono">
+                <span className="text-xs text-blue-600 dark:text-blue-400 font-medium flex items-center gap-1 font-mono">
                   <CheckCircle className="w-3.5 h-3.5" /> Settings persisted successfully
                 </span>
               )}
@@ -281,7 +281,7 @@ export default function SettingsPage() {
               <button
                 type="submit"
                 disabled={saving}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-zinc-900 hover:bg-black dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-medium text-xs shadow-sm transition-all active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-sm shadow-blue-500/20 transition-all active:scale-[0.98]"
               >
                 <Save className="w-4 h-4" />
                 {saving ? "Saving Changes..." : "Save Settings"}

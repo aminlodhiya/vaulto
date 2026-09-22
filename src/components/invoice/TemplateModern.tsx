@@ -19,7 +19,7 @@ export function TemplateModern({ invoice }: { invoice: Partial<Invoice> }) {
                 className="h-10 w-auto max-w-[140px] object-contain rounded-md mb-3"
               />
             ) : (
-              <div className="w-10 h-10 rounded-lg bg-zinc-900 text-white flex items-center justify-center font-bold text-lg mb-3 shadow-2xs font-mono">
+              <div className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold text-lg mb-3 shadow-xs font-mono">
                 {invoice.senderBusiness ? invoice.senderBusiness.charAt(0) : "V"}
               </div>
             )}
@@ -31,7 +31,7 @@ export function TemplateModern({ invoice }: { invoice: Partial<Invoice> }) {
           </div>
 
           <div className="sm:text-right">
-            <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-zinc-100 text-zinc-800 border border-zinc-200">
+            <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-blue-50 text-blue-700 border border-blue-200">
               INVOICE
             </span>
             <h1 className="text-2xl font-bold text-zinc-950 mt-2 font-mono">
@@ -44,7 +44,7 @@ export function TemplateModern({ invoice }: { invoice: Partial<Invoice> }) {
                 <p className="pt-1">
                   <span className={`inline-block px-2 py-0.2 rounded text-[10px] font-bold uppercase ${
                     invoice.status === "paid"
-                      ? "bg-zinc-100 text-zinc-900 border border-zinc-300"
+                      ? "bg-blue-50 text-blue-700 border border-blue-200"
                       : invoice.status === "overdue"
                       ? "bg-rose-50 text-rose-800 border border-rose-200"
                       : "bg-zinc-50 text-zinc-700 border border-zinc-200"
@@ -60,7 +60,7 @@ export function TemplateModern({ invoice }: { invoice: Partial<Invoice> }) {
         {/* Bill To */}
         <div className="py-6 grid grid-cols-1 sm:grid-cols-2 gap-6 border-b border-zinc-100">
           <div className="bg-zinc-50 p-4 rounded-lg border border-zinc-200/60">
-            <p className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider mb-1.5">
+            <p className="text-[10px] font-mono font-bold text-blue-600 uppercase tracking-wider mb-1.5">
               BILLED TO
             </p>
             <h3 className="text-sm font-bold text-zinc-900">{invoice.clientName || "Client Name"}</h3>
@@ -72,13 +72,13 @@ export function TemplateModern({ invoice }: { invoice: Partial<Invoice> }) {
 
           <div className="bg-zinc-50 p-4 rounded-lg border border-zinc-200/60 flex flex-col justify-between">
             <div>
-              <p className="text-[10px] font-mono font-bold text-zinc-500 uppercase tracking-wider mb-1.5">
+              <p className="text-[10px] font-mono font-bold text-blue-600 uppercase tracking-wider mb-1.5">
                 PAYMENT TERMS
               </p>
               <p className="text-xs text-zinc-600">{invoice.paymentTerms || "Net 30 days"}</p>
             </div>
             {invoice.isRecurring && (
-              <div className="mt-2 inline-flex items-center gap-1.5 text-[11px] text-zinc-700 bg-white px-2 py-0.5 rounded border border-zinc-200 font-mono">
+              <div className="mt-2 inline-flex items-center gap-1.5 text-[11px] text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200 font-mono">
                 <span>🔄 Automated Retainer ({invoice.recurringInterval})</span>
               </div>
             )}
@@ -89,7 +89,7 @@ export function TemplateModern({ invoice }: { invoice: Partial<Invoice> }) {
         <div className="overflow-x-auto my-4">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b border-zinc-900 text-zinc-900 text-[11px] uppercase tracking-wider font-bold font-mono">
+              <tr className="border-b-2 border-blue-600 text-blue-950 text-[11px] uppercase tracking-wider font-bold font-mono">
                 <th className="py-2.5 px-2">Deliverable Item</th>
                 <th className="py-2.5 px-2 text-center w-20">Units</th>
                 <th className="py-2.5 px-2 text-right w-28">Rate</th>
@@ -147,9 +147,9 @@ export function TemplateModern({ invoice }: { invoice: Partial<Invoice> }) {
               </div>
             )}
 
-            <div className="border-t border-zinc-900 pt-2 flex justify-between text-sm font-bold text-zinc-950">
+            <div className="border-t-2 border-blue-600 pt-2 flex justify-between text-sm font-bold text-zinc-950">
               <span>Total Payable</span>
-              <span className="font-mono text-base">{formatCurrency(invoice.total || 0, currency)}</span>
+              <span className="font-mono text-base text-blue-600">{formatCurrency(invoice.total || 0, currency)}</span>
             </div>
           </div>
         </div>
