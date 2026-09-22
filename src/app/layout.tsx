@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TeleExpense | Invoicing & Telegram Expense Tracker Fintech Suite",
+  title: "Vaulto | Intelligent Invoicing & Expense Operating System",
   description:
-    "Your personal invoicing & expense sidekick on Telegram, integrated with Google Sheets, Stripe billing, and real-time cashflow analytics.",
+    "The financial OS for modern studios, freelancers, and operators. Real-time Telegram expense capture, bespoke invoices, Google Sheets sync & cashflow analytics.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans">
+      <body className="min-h-full flex flex-col bg-[#fbfbfa] dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 font-sans">
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>

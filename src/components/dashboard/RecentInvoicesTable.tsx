@@ -10,8 +10,6 @@ import {
   CheckCircle,
   Clock,
   AlertCircle,
-  MoreVertical,
-  Download,
   ExternalLink,
 } from "lucide-react";
 import confetti from "canvas-confetti";
@@ -38,8 +36,8 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
 
       if (res.ok) {
         confetti({
-          particleCount: 50,
-          spread: 60,
+          particleCount: 40,
+          spread: 50,
           origin: { y: 0.7 },
         });
         if (onInvoiceUpdated) onInvoiceUpdated();
@@ -58,27 +56,27 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
     switch (actualStatus) {
       case "paid":
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-            <CheckCircle className="w-3 h-3" /> Paid
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700">
+            Paid
           </span>
         );
       case "overdue":
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-300 border border-rose-200 dark:border-rose-800">
-            <AlertCircle className="w-3 h-3" /> Overdue
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-rose-50 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border border-rose-200 dark:border-rose-900">
+            Overdue
           </span>
         );
       case "sent":
       case "unpaid":
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-200 dark:border-amber-800">
-            <Clock className="w-3 h-3" /> Pending
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-zinc-100 text-zinc-700 dark:bg-zinc-850 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-750">
+            Pending
           </span>
         );
       case "draft":
       default:
         return (
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-zinc-100 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-zinc-50 text-zinc-500 dark:bg-zinc-900 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800">
             Draft
           </span>
         );
@@ -89,10 +87,10 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
     return (
       <div className="p-8 text-center text-zinc-500 space-y-3">
         <FileText className="w-8 h-8 mx-auto text-zinc-400" />
-        <p className="text-sm">No invoices found. Create your first invoice!</p>
+        <p className="text-xs">No invoices created yet.</p>
         <Link
           href="/invoices/new"
-          className="inline-block px-3.5 py-1.5 rounded-lg bg-indigo-600 text-white text-xs font-semibold"
+          className="inline-block px-3 py-1.5 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-medium"
         >
           Create Invoice
         </Link>
@@ -104,8 +102,8 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
     <div className="overflow-x-auto">
       <table className="w-full text-left border-collapse">
         <thead>
-          <tr className="border-b border-zinc-200 dark:border-zinc-800 text-[11px] font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
-            <th className="py-3 px-4">Invoice #</th>
+          <tr className="border-b border-zinc-200 dark:border-zinc-800 text-[10px] font-mono uppercase tracking-wider text-zinc-400">
+            <th className="py-3 px-4">Invoice</th>
             <th className="py-3 px-4">Client</th>
             <th className="py-3 px-4">Due Date</th>
             <th className="py-3 px-4">Amount</th>
@@ -117,53 +115,52 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
           {invoices.map((inv) => (
             <tr
               key={inv.id}
-              className="hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-colors group"
+              className="hover:bg-zinc-50/80 dark:hover:bg-zinc-850/40 transition-colors"
             >
-              <td className="py-3.5 px-4 font-mono font-bold text-zinc-900 dark:text-white">
+              <td className="py-3 px-4 font-mono font-bold text-zinc-900 dark:text-white">
                 <Link
                   href={`/invoices/${inv.id}`}
-                  className="hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center gap-1.5"
+                  className="hover:underline flex items-center gap-1"
                 >
                   {inv.invoiceNumber}
                   {inv.isRecurring && (
-                    <span className="text-[10px] text-indigo-500 font-sans font-normal">
+                    <span className="text-[10px] text-zinc-400 font-sans">
                       (🔄)
                     </span>
                   )}
                 </Link>
               </td>
 
-              <td className="py-3.5 px-4">
+              <td className="py-3 px-4">
                 <p className="font-semibold text-zinc-900 dark:text-zinc-200">
                   {inv.clientName}
                 </p>
                 {inv.clientCompany && (
-                  <p className="text-[11px] text-zinc-500 dark:text-zinc-400">
+                  <p className="text-[11px] text-zinc-500">
                     {inv.clientCompany}
                   </p>
                 )}
               </td>
 
-              <td className="py-3.5 px-4 text-zinc-600 dark:text-zinc-400">
+              <td className="py-3 px-4 text-zinc-600 dark:text-zinc-400 font-mono text-[11px]">
                 {formatDate(inv.dueDate)}
               </td>
 
-              <td className="py-3.5 px-4 font-mono font-bold text-zinc-900 dark:text-white">
+              <td className="py-3 px-4 font-mono font-bold text-zinc-900 dark:text-white">
                 {formatCurrency(inv.total, inv.currency)}
               </td>
 
-              <td className="py-3.5 px-4">
+              <td className="py-3 px-4">
                 {getStatusBadge(inv.status, inv.dueDate)}
               </td>
 
-              <td className="py-3.5 px-4 text-right">
+              <td className="py-3 px-4 text-right">
                 <div className="flex items-center justify-end gap-1.5">
                   {inv.status !== "paid" && (
                     <button
                       onClick={(e) => handleMarkPaid(e, inv.id)}
                       disabled={updatingId === inv.id}
-                      className="px-2 py-1 rounded bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 border border-emerald-200 dark:border-emerald-800 text-[11px] font-semibold transition-colors"
-                      title="Mark as paid"
+                      className="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-200 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700 text-[10px] font-mono transition-colors"
                     >
                       {updatingId === inv.id ? "..." : "Mark Paid"}
                     </button>
@@ -172,16 +169,16 @@ export function RecentInvoicesTable({ invoices, onInvoiceUpdated }: RecentInvoic
                   <Link
                     href={`/view/${inv.id}`}
                     target="_blank"
-                    className="p-1 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 rounded transition-colors"
-                    title="Public Invoice Link"
+                    className="p-1 text-zinc-400 hover:text-zinc-900 dark:hover:text-white rounded transition-colors"
+                    title="Public Invoice View"
                   >
                     <ExternalLink className="w-3.5 h-3.5" />
                   </Link>
 
                   <Link
                     href={`/invoices/${inv.id}`}
-                    className="p-1 text-zinc-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded transition-colors"
-                    title="View & Edit Details"
+                    className="p-1 text-zinc-400 hover:text-zinc-900 dark:hover:text-white rounded transition-colors"
+                    title="Details"
                   >
                     <ArrowUpRight className="w-4 h-4" />
                   </Link>

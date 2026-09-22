@@ -174,7 +174,7 @@ export default function ExpensesPage() {
           </a>
           <button
             onClick={() => setModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs shadow-sm transition-all"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 font-medium text-xs shadow-2xs transition-all"
           >
             <Plus className="w-3.5 h-3.5" />
             Log Expense
@@ -183,26 +183,26 @@ export default function ExpensesPage() {
 
         <div className="p-6 space-y-6 max-w-7xl mx-auto w-full pb-16">
           {/* Summary Metric Header */}
-          <div className="bg-gradient-to-r from-indigo-900 via-zinc-900 to-sky-950 p-6 rounded-2xl border border-indigo-800/50 shadow-md text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="bg-white dark:bg-[#0c0d0e] p-6 rounded-xl border border-zinc-200/80 dark:border-zinc-850 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-indigo-300 font-semibold uppercase tracking-wider">
+              <span className="text-[11px] font-mono text-zinc-500 uppercase tracking-wider">
                 Total Filtered Spend
               </span>
-              <h2 className="text-3xl font-extrabold font-mono mt-1">
+              <h2 className="text-2xl font-bold font-mono text-zinc-950 dark:text-white mt-1">
                 {formatCurrency(totalFilteredAmount, user?.currency)}
               </h2>
-              <p className="text-xs text-zinc-400 mt-1">
-                {filteredExpenses.length} transactions across categories
+              <p className="text-xs text-zinc-500 mt-1">
+                {filteredExpenses.length} transactions across filtered categories
               </p>
             </div>
 
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setSimulatorOpen(true)}
-                className="px-4 py-2 rounded-xl bg-[#24A1DE] hover:bg-[#1f8fcd] text-white font-semibold text-xs transition-colors flex items-center gap-1.5 shadow-sm"
+                className="px-3.5 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 font-medium text-xs transition-colors flex items-center gap-1.5 shadow-2xs"
               >
                 <Send className="w-3.5 h-3.5" />
-                Telegram Quick-Log Bot
+                Telegram Quick-Log
               </button>
             </div>
           </div>

@@ -70,23 +70,23 @@ export function exportPLSummaryToCSV(summary: FinancialSummary, currency: string
 
 export function generateGoogleAppsScriptCode(webhookUrl: string, apiToken: string): string {
   return `/**
- * TeleExpense Google Sheets 2-Way Sync Script
- * Paste this in Extensions > Apps Script in your Google Sheet.
+ * Vaulto Google Sheets 2-Way Synchronization Script
+ * Paste this in Google Sheets > Extensions > Apps Script.
  */
 
-const TELEEXPENSE_WEBHOOK_URL = "${webhookUrl}";
-const TELEEXPENSE_API_TOKEN = "${apiToken}";
+const VAULTO_WEBHOOK_URL = "${webhookUrl}";
+const VAULTO_API_TOKEN = "${apiToken}";
 
 function onEdit(e) {
   const sheet = e.source.getActiveSheet();
   const sheetName = sheet.getName();
   
   if (sheetName === "Expenses" || sheetName === "Invoices") {
-    syncToTeleExpense();
+    syncToVaulto();
   }
 }
 
-function syncToTeleExpense() {
+function syncToVaulto() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const expenseSheet = ss.getSheetByName("Expenses") || ss.getActiveSheet();
   const data = expenseSheet.getDataRange().getValues();
@@ -95,7 +95,7 @@ function syncToTeleExpense() {
   const rows = data.slice(1);
   
   const payload = {
-    token: TELEEXPENSE_API_TOKEN,
+    token: VAULTO_API_TOKEN,
     sheetName: expenseSheet.getName(),
     rows: rows.map(r => ({
       date: r[0],
@@ -114,10 +114,10 @@ function syncToTeleExpense() {
   };
   
   try {
-    const response = UrlFetchApp.fetch(TELEEXPENSE_WEBHOOK_URL, options);
-    Logger.log("TeleExpense Sync: " + response.getContentText());
+    const response = UrlFetchApp.fetch(VAULTO_WEBHOOK_URL, options);
+    Logger.log("Vaulto Sync Result: " + response.getContentText());
   } catch (err) {
-    Logger.log("TeleExpense Sync Error: " + err);
+    Logger.log("Vaulto Sync Error: " + err);
   }
 }
 `;

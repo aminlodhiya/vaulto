@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
         `📂 <b>Category:</b> ${catName}\n` +
         `🏷️ <b>Merchant:</b> ${parsed.merchant || "N/A"}\n` +
         `📝 <b>Note:</b> ${parsed.description}${merchText}\n\n` +
-        `✨ <i>Auto-synced to your TeleExpense dashboard & Google Sheets!</i>`;
+        `✨ <i>Auto-synced to your Vaulto dashboard & Google Sheets!</i>`;
 
       db.createTelegramLog({
         userId: user.id,
@@ -148,7 +148,7 @@ export async function POST(req: NextRequest) {
         `• <i>"AWS hosting 120"</i>\n` +
         `• <i>"/summary"</i>`;
     } else if (parsed.actionType === "help") {
-      replyText = `🤖 <b>TeleExpense Commands Guide</b>\n\n` +
+      replyText = `🤖 <b>Vaulto Commands Guide</b>\n\n` +
         `• <b>Log Expense:</b> <code>Spent $45 on lunch at Chipotle</code>\n` +
         `• <b>Fast Entry:</b> <code>Uber 24.50 category:travel</code>\n` +
         `• <b>Create Invoice:</b> <code>/invoice Acme Corp 500 Design</code>\n` +

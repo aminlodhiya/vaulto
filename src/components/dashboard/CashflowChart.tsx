@@ -26,8 +26,8 @@ interface CashflowChartProps {
 export function CashflowChart({ data, currency = "USD" }: CashflowChartProps) {
   if (!data || data.length === 0) {
     return (
-      <div className="h-72 flex items-center justify-center text-xs text-zinc-400">
-        No financial data available yet
+      <div className="h-72 flex items-center justify-center text-xs text-zinc-400 font-mono">
+        No financial records found.
       </div>
     );
   }
@@ -36,43 +36,35 @@ export function CashflowChart({ data, currency = "USD" }: CashflowChartProps) {
     <div className="w-full h-80 pt-2">
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-          <defs>
-            <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#4f46e5" stopOpacity={0.4} />
-              <stop offset="95%" stopColor="#4f46e5" stopOpacity={0.0} />
-            </linearGradient>
-            <linearGradient id="colorExpenses" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#f43f5e" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="#f43f5e" stopOpacity={0.0} />
-            </linearGradient>
-          </defs>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#374151" opacity={0.2} />
+          <CartesianGrid strokeDasharray="2 2" vertical={false} stroke="#27272a" opacity={0.3} />
           <XAxis
             dataKey="month"
             tickLine={false}
             axisLine={false}
-            tick={{ fill: "#9ca3af", fontSize: 12 }}
+            tick={{ fill: "#71717a", fontSize: 11, fontFamily: "monospace" }}
           />
           <YAxis
             tickLine={false}
             axisLine={false}
-            tick={{ fill: "#9ca3af", fontSize: 12 }}
+            tick={{ fill: "#71717a", fontSize: 11, fontFamily: "monospace" }}
             tickFormatter={(val) => `$${val}`}
           />
           <Tooltip
             content={({ active, payload, label }) => {
               if (active && payload && payload.length) {
+                const rev = Number(payload[0]?.value) || 0;
+                const exp = Number(payload[1]?.value) || 0;
                 return (
-                  <div className="bg-zinc-900 border border-zinc-700 p-3 rounded-xl shadow-xl text-xs text-white space-y-1.5 font-mono">
-                    <p className="font-bold text-zinc-200 border-b border-zinc-800 pb-1">{label}</p>
-                    <p className="text-indigo-400">
-                      Revenue: {formatCurrency(Number(payload[0]?.value) || 0, currency)}
+                  <div className="bg-[#09090b] border border-zinc-700 p-3 rounded-lg shadow-lg text-xs text-white space-y-1 font-mono">
+                    <p className="font-bold text-zinc-300 border-b border-zinc-800 pb-1">{label}</p>
+                    <p className="text-zinc-200">
+                      Revenue: {formatCurrency(rev, currency)}
                     </p>
-                    <p className="text-rose-400">
-                      Expenses: {formatCurrency(Number(payload[1]?.value) || 0, currency)}
+                    <p className="text-zinc-400">
+                      Expenses: {formatCurrency(exp, currency)}
                     </p>
-                    <p className="text-emerald-400 pt-0.5 border-t border-zinc-800">
-                      Net: {formatCurrency((Number(payload[0]?.value) || 0) - (Number(payload[1]?.value) || 0), currency)}
+                    <p className="text-emerald-400 pt-0.5 border-t border-zinc-800 font-bold">
+                      Net Margin: {formatCurrency(rev - exp, currency)}
                     </p>
                   </div>
                 );
@@ -84,25 +76,26 @@ export function CashflowChart({ data, currency = "USD" }: CashflowChartProps) {
             verticalAlign="top"
             align="right"
             iconType="circle"
-            wrapperStyle={{ paddingBottom: "12px", fontSize: "12px" }}
+            wrapperStyle={{ paddingBottom: "12px", fontSize: "11px", fontFamily: "monospace" }}
           />
           <Area
             type="monotone"
             dataKey="revenue"
             name="Revenue"
-            stroke="#4f46e5"
-            strokeWidth={3}
-            fillOpacity={1}
-            fill="url(#colorRevenue)"
+            stroke="#18181b"
+            strokeWidth={2}
+            fill="#18181b"
+            fillOpacity={0.08}
           />
           <Area
             type="monotone"
             dataKey="expenses"
             name="Expenses"
-            stroke="#f43f5e"
-            strokeWidth={2.5}
-            fillOpacity={1}
-            fill="url(#colorExpenses)"
+            stroke="#71717a"
+            strokeWidth={1.5}
+            strokeDasharray="4 4"
+            fill="#71717a"
+            fillOpacity={0.04}
           />
         </AreaChart>
       </ResponsiveContainer>

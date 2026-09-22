@@ -55,7 +55,7 @@ function getInitialSeededData(): DatabaseSchema {
 
   const demoUser: User = {
     id: "usr_demo123",
-    email: "demo@teleexpense.io",
+    email: "demo@vaulto.io",
     passwordHash,
     name: "Alex Morgan",
     businessName: "Nexus Digital Studio",

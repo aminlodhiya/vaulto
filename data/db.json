@@ -1,0 +1,420 @@
+{
+  "users": [
+    {
+      "id": "usr_demo123",
+      "email": "demo@vaulto.io",
+      "passwordHash": "$2b$10$OmqhkCT07GtDf0Za/T1Zme3bNjfCnb.RFWSO/GvQAMyClcx4MZ0Vi",
+      "name": "Alex Morgan",
+      "businessName": "Nexus Digital Studio",
+      "businessAddress": "742 Evergreen Terrace, Suite 400, San Francisco, CA 94107",
+      "businessEmail": "billing@nexusdigital.io",
+      "businessPhone": "+1 (555) 234-5678",
+      "taxNumber": "US-88392019",
+      "currency": "USD",
+      "logoUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&auto=format&fit=crop&q=80",
+      "subscriptionTier": "pro",
+      "telegramConnected": true,
+      "telegramChatId": "987654321",
+      "telegramSyncToken": "748291",
+      "googleSheetsConfig": {
+        "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit",
+        "sheetName": "Finances 2026",
+        "isConnected": true,
+        "lastSyncedAt": "2026-09-22T15:26:51.046Z"
+      },
+      "createdAt": "2026-07-24T15:26:51.046Z"
+    }
+  ],
+  "clients": [
+    {
+      "id": "cli_acme",
+      "userId": "usr_demo123",
+      "name": "Sarah Jenkins",
+      "company": "Acme Innovations Inc.",
+      "email": "sarah@acme-innovations.com",
+      "address": "100 Tech Blvd, Austin, TX 78701",
+      "phone": "+1 (512) 555-0199",
+      "taxId": "TX-998822",
+      "currency": "USD",
+      "notes": "Net 30 payment terms. Monthly retainer for product design.",
+      "createdAt": "2026-08-03T15:26:51.046Z"
+    },
+    {
+      "id": "cli_lumina",
+      "userId": "usr_demo123",
+      "name": "David Chen",
+      "company": "Lumina Labs UK",
+      "email": "finance@luminalabs.co.uk",
+      "address": "45 Silicon Roundabout, London, EC1V 1AB, UK",
+      "phone": "+44 20 7946 0912",
+      "taxId": "GB-99238471",
+      "currency": "USD",
+      "notes": "Quarterly web app development contracts.",
+      "createdAt": "2026-08-13T15:26:51.046Z"
+    },
+    {
+      "id": "cli_pulse",
+      "userId": "usr_demo123",
+      "name": "Elena Rostova",
+      "company": "Pulse HealthTech",
+      "email": "elena@pulsehealth.co",
+      "address": "220 Health Pkwy, Boston, MA 02115",
+      "phone": "+1 (617) 555-0144",
+      "taxId": "MA-123498",
+      "currency": "USD",
+      "notes": "Mobile application UI/UX overhaul.",
+      "createdAt": "2026-08-23T15:26:51.046Z"
+    },
+    {
+      "id": "cli_vanguard",
+      "userId": "usr_demo123",
+      "name": "Marcus Sterling",
+      "company": "Vanguard Retail Ventures",
+      "email": "m.sterling@vanguardrv.com",
+      "address": "500 Madison Ave, New York, NY 10022",
+      "phone": "+1 (212) 555-0182",
+      "taxId": "NY-776655",
+      "currency": "USD",
+      "notes": "E-commerce platform migration project.",
+      "createdAt": "2026-09-02T15:26:51.046Z"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "inv_1001",
+      "userId": "usr_demo123",
+      "invoiceNumber": "INV-2026-0001",
+      "issueDate": "2026-08-08",
+      "dueDate": "2026-09-07",
+      "status": "paid",
+      "currency": "USD",
+      "senderName": "Alex Morgan",
+      "senderBusiness": "Nexus Digital Studio",
+      "senderEmail": "billing@nexusdigital.io",
+      "senderAddress": "742 Evergreen Terrace, Suite 400, San Francisco, CA 94107",
+      "senderPhone": "+1 (555) 234-5678",
+      "senderTaxId": "US-88392019",
+      "senderLogo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&auto=format&fit=crop&q=80",
+      "clientId": "cli_acme",
+      "clientName": "Sarah Jenkins",
+      "clientCompany": "Acme Innovations Inc.",
+      "clientEmail": "sarah@acme-innovations.com",
+      "clientAddress": "100 Tech Blvd, Austin, TX 78701",
+      "clientPhone": "+1 (512) 555-0199",
+      "clientTaxId": "TX-998822",
+      "items": [
+        {
+          "id": "item_1",
+          "name": "UI/UX Redesign - Sprint 1 & 2",
+          "description": "Complete design system and high-fidelity Figma prototypes",
+          "quantity": 40,
+          "unitPrice": 95,
+          "total": 3800
+        },
+        {
+          "id": "item_2",
+          "name": "Design System Documentation",
+          "description": "Component specifications and design tokens handoff",
+          "quantity": 1,
+          "unitPrice": 700,
+          "total": 700
+        }
+      ],
+      "subtotal": 4500,
+      "taxRate": 0,
+      "taxAmount": 0,
+      "discountRate": 0,
+      "discountAmount": 0,
+      "shipping": 0,
+      "total": 4500,
+      "notes": "Thank you for partnering with Nexus Digital Studio!",
+      "paymentTerms": "Due within 30 days. Wire transfer or Stripe card payment accepted.",
+      "template": "modern",
+      "accentColor": "#4f46e5",
+      "isRecurring": true,
+      "recurringInterval": "monthly",
+      "nextRecurringDate": "2026-10-07",
+      "paidAt": "2026-09-07",
+      "createdAt": "2026-08-08",
+      "updatedAt": "2026-09-07"
+    },
+    {
+      "id": "inv_1002",
+      "userId": "usr_demo123",
+      "invoiceNumber": "INV-2026-0002",
+      "issueDate": "2026-08-23",
+      "dueDate": "2026-09-21",
+      "status": "overdue",
+      "currency": "USD",
+      "senderName": "Alex Morgan",
+      "senderBusiness": "Nexus Digital Studio",
+      "senderEmail": "billing@nexusdigital.io",
+      "senderAddress": "742 Evergreen Terrace, Suite 400, San Francisco, CA 94107",
+      "senderPhone": "+1 (555) 234-5678",
+      "senderTaxId": "US-88392019",
+      "senderLogo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&auto=format&fit=crop&q=80",
+      "clientId": "cli_lumina",
+      "clientName": "David Chen",
+      "clientCompany": "Lumina Labs UK",
+      "clientEmail": "finance@luminalabs.co.uk",
+      "clientAddress": "45 Silicon Roundabout, London, EC1V 1AB, UK",
+      "clientPhone": "+44 20 7946 0912",
+      "items": [
+        {
+          "id": "item_3",
+          "name": "Next.js Full-Stack Web Application",
+          "description": "Interactive dashboard, API integration, and database schema setup",
+          "quantity": 60,
+          "unitPrice": 110,
+          "total": 6600
+        },
+        {
+          "id": "item_4",
+          "name": "Cloud Infrastructure Setup",
+          "description": "Automated CI/CD deployment on AWS and Cloudflare DNS configuration",
+          "quantity": 1,
+          "unitPrice": 900,
+          "total": 900
+        }
+      ],
+      "subtotal": 7500,
+      "taxRate": 8.25,
+      "taxAmount": 618.75,
+      "discountRate": 5,
+      "discountAmount": 375,
+      "shipping": 0,
+      "total": 7743.75,
+      "notes": "Payment is now past due. Please settle at your earliest convenience.",
+      "paymentTerms": "Net 15 days.",
+      "template": "emerald",
+      "accentColor": "#059669",
+      "isRecurring": false,
+      "createdAt": "2026-08-23",
+      "updatedAt": "2026-08-23"
+    },
+    {
+      "id": "inv_1003",
+      "userId": "usr_demo123",
+      "invoiceNumber": "INV-2026-0003",
+      "issueDate": "2026-09-07",
+      "dueDate": "2026-10-02",
+      "status": "unpaid",
+      "currency": "USD",
+      "senderName": "Alex Morgan",
+      "senderBusiness": "Nexus Digital Studio",
+      "senderEmail": "billing@nexusdigital.io",
+      "senderAddress": "742 Evergreen Terrace, Suite 400, San Francisco, CA 94107",
+      "senderPhone": "+1 (555) 234-5678",
+      "senderTaxId": "US-88392019",
+      "senderLogo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&auto=format&fit=crop&q=80",
+      "clientId": "cli_pulse",
+      "clientName": "Elena Rostova",
+      "clientCompany": "Pulse HealthTech",
+      "clientEmail": "elena@pulsehealth.co",
+      "clientAddress": "220 Health Pkwy, Boston, MA 02115",
+      "items": [
+        {
+          "id": "item_5",
+          "name": "HealthTech Mobile App Prototype",
+          "description": "React Native prototype with biometric authentication",
+          "quantity": 35,
+          "unitPrice": 120,
+          "total": 4200
+        }
+      ],
+      "subtotal": 4200,
+      "taxRate": 0,
+      "taxAmount": 0,
+      "discountRate": 0,
+      "discountAmount": 0,
+      "shipping": 0,
+      "total": 4200,
+      "notes": "Phase 1 deliverables accepted on review call.",
+      "paymentTerms": "Payment due within 25 days.",
+      "template": "executive",
+      "accentColor": "#1e293b",
+      "isRecurring": true,
+      "recurringInterval": "monthly",
+      "nextRecurringDate": "2026-10-17",
+      "createdAt": "2026-09-07",
+      "updatedAt": "2026-09-07"
+    },
+    {
+      "id": "inv_1004",
+      "userId": "usr_demo123",
+      "invoiceNumber": "INV-2026-0004",
+      "issueDate": "2026-09-22",
+      "dueDate": "2026-10-17",
+      "status": "draft",
+      "currency": "USD",
+      "senderName": "Alex Morgan",
+      "senderBusiness": "Nexus Digital Studio",
+      "senderEmail": "billing@nexusdigital.io",
+      "senderAddress": "742 Evergreen Terrace, Suite 400, San Francisco, CA 94107",
+      "senderLogo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&auto=format&fit=crop&q=80",
+      "clientId": "cli_vanguard",
+      "clientName": "Marcus Sterling",
+      "clientCompany": "Vanguard Retail Ventures",
+      "clientEmail": "m.sterling@vanguardrv.com",
+      "clientAddress": "500 Madison Ave, New York, NY 10022",
+      "items": [
+        {
+          "id": "item_6",
+          "name": "E-Commerce Checkout Optimization",
+          "description": "Conversion rate optimization and Stripe elements integration",
+          "quantity": 1,
+          "unitPrice": 3200,
+          "total": 3200
+        }
+      ],
+      "subtotal": 3200,
+      "taxRate": 6,
+      "taxAmount": 192,
+      "discountRate": 0,
+      "discountAmount": 0,
+      "shipping": 0,
+      "total": 3392,
+      "notes": "Draft prepared for client sign-off.",
+      "paymentTerms": "Due on completion of milestone 1.",
+      "template": "minimal",
+      "isRecurring": false,
+      "createdAt": "2026-09-22T15:26:51.046Z",
+      "updatedAt": "2026-09-22T15:26:51.046Z"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "exp_1",
+      "userId": "usr_demo123",
+      "amount": 145.2,
+      "currency": "USD",
+      "category": "software",
+      "merchant": "AWS",
+      "description": "Cloud hosting and EC2 instance compute",
+      "date": "2026-09-20",
+      "tags": [
+        "cloud",
+        "infrastructure"
+      ],
+      "source": "telegram",
+      "telegramMessageId": "msg_901",
+      "createdAt": "2026-09-20T15:26:51.046Z"
+    },
+    {
+      "id": "exp_2",
+      "userId": "usr_demo123",
+      "amount": 48.5,
+      "currency": "USD",
+      "category": "meals",
+      "merchant": "Starbucks",
+      "description": "Coffee meeting with Acme Innovations client",
+      "date": "2026-09-18",
+      "tags": [
+        "client",
+        "lunch"
+      ],
+      "source": "telegram",
+      "telegramMessageId": "msg_902",
+      "createdAt": "2026-09-18T15:26:51.046Z"
+    },
+    {
+      "id": "exp_3",
+      "userId": "usr_demo123",
+      "amount": 32.75,
+      "currency": "USD",
+      "category": "travel",
+      "merchant": "Uber",
+      "description": "Ride to client onsite strategy session",
+      "date": "2026-09-15",
+      "tags": [
+        "travel",
+        "taxi"
+      ],
+      "source": "telegram",
+      "telegramMessageId": "msg_903",
+      "createdAt": "2026-09-15T15:26:51.046Z"
+    },
+    {
+      "id": "exp_4",
+      "userId": "usr_demo123",
+      "amount": 240,
+      "currency": "USD",
+      "category": "software",
+      "merchant": "Vercel & Figma",
+      "description": "Monthly Pro Team design and deployment subscriptions",
+      "date": "2026-09-10",
+      "tags": [
+        "design",
+        "hosting"
+      ],
+      "source": "web",
+      "createdAt": "2026-09-10T15:26:51.046Z"
+    },
+    {
+      "id": "exp_5",
+      "userId": "usr_demo123",
+      "amount": 850,
+      "currency": "USD",
+      "category": "contractor",
+      "merchant": "DevContractor",
+      "description": "Subcontracted QA testing for Lumina Labs release",
+      "date": "2026-09-04",
+      "tags": [
+        "dev",
+        "qa"
+      ],
+      "source": "web",
+      "createdAt": "2026-09-04T15:26:51.046Z"
+    },
+    {
+      "id": "exp_6",
+      "userId": "usr_demo123",
+      "amount": 89.99,
+      "currency": "USD",
+      "category": "utilities",
+      "merchant": "Comcast Business",
+      "description": "Gigabit Fiber internet connection for office studio",
+      "date": "2026-08-28",
+      "tags": [
+        "internet",
+        "bills"
+      ],
+      "source": "sheets",
+      "createdAt": "2026-08-28T15:26:51.046Z"
+    }
+  ],
+  "telegramLogs": [
+    {
+      "id": "log_1",
+      "userId": "usr_demo123",
+      "rawText": "Spent $145.20 on AWS hosting #cloud",
+      "parsedData": {
+        "amount": 145.2,
+        "category": "software",
+        "merchant": "AWS",
+        "description": "Cloud hosting",
+        "currency": "USD",
+        "actionType": "expense"
+      },
+      "success": true,
+      "responseSent": "✅ Expense logged! Added $145.20 for AWS under [Software]. Synced to Google Sheets 📊",
+      "createdAt": "2026-09-20T15:26:51.046Z"
+    },
+    {
+      "id": "log_2",
+      "userId": "usr_demo123",
+      "rawText": "Uber to airport $32.75",
+      "parsedData": {
+        "amount": 32.75,
+        "category": "travel",
+        "merchant": "Uber",
+        "description": "Ride to client onsite strategy session",
+        "currency": "USD",
+        "actionType": "expense"
+      },
+      "success": true,
+      "responseSent": "✅ Expense logged! Added $32.75 for Uber under [Travel]. Synced to Google Sheets 📊",
+      "createdAt": "2026-09-15T15:26:51.046Z"
+    }
+  ]
+}

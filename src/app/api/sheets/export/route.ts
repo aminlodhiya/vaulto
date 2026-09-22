@@ -23,15 +23,15 @@ export async function GET(req: NextRequest) {
     if (type === "invoices") {
       const invoices = db.getInvoices(user.id);
       csvContent = exportInvoicesToCSV(invoices);
-      filename = `TeleExpense_Invoices_${new Date().toISOString().split("T")[0]}.csv`;
+      filename = `Vaulto_Invoices_${new Date().toISOString().split("T")[0]}.csv`;
     } else if (type === "expenses") {
       const expenses = db.getExpenses(user.id);
       csvContent = exportExpensesToCSV(expenses);
-      filename = `TeleExpense_Expenses_${new Date().toISOString().split("T")[0]}.csv`;
+      filename = `Vaulto_Expenses_${new Date().toISOString().split("T")[0]}.csv`;
     } else if (type === "summary") {
       const summary = db.getFinancialSummary(user.id);
       csvContent = exportPLSummaryToCSV(summary, user.currency);
-      filename = `TeleExpense_Financial_Summary_${new Date().toISOString().split("T")[0]}.csv`;
+      filename = `Vaulto_Financial_Summary_${new Date().toISOString().split("T")[0]}.csv`;
     } else {
       return NextResponse.json({ error: "Invalid export type" }, { status: 400 });
     }

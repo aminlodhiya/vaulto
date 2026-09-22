@@ -26,10 +26,10 @@ export async function POST(req: NextRequest) {
           telegramChatId: chatId,
         });
 
-        await sendTelegramReply(chatId, `🎉 <b>Account Connected Successfully!</b>\n\nWelcome to TeleExpense, ${user.name}! You can now send expenses here directly (e.g. <i>"Spent $45 on lunch at Chipotle"</i>).`);
+        await sendTelegramReply(chatId, `🎉 <b>Account Connected Successfully!</b>\n\nWelcome to Vaulto, ${user.name}! You can now send expenses here directly (e.g. <i>"Spent $45 on lunch at Chipotle"</i>).`);
         return NextResponse.json({ ok: true });
       } else {
-        await sendTelegramReply(chatId, `❌ Invalid sync code. Please get your 6-digit sync token from your TeleExpense Settings page.`);
+        await sendTelegramReply(chatId, `❌ Invalid sync code. Please get your 6-digit sync token from your Vaulto Settings page.`);
         return NextResponse.json({ ok: true });
       }
     }
@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
     }
 
     if (!user) {
-      await sendTelegramReply(chatId, `👋 Please connect your TeleExpense account first by typing:\n<code>/connect YOUR_6_DIGIT_CODE</code>`);
+      await sendTelegramReply(chatId, `👋 Please connect your Vaulto account first by typing:\n<code>/connect YOUR_6_DIGIT_CODE</code>`);
       return NextResponse.json({ ok: true });
     }
 
@@ -124,7 +124,7 @@ export async function POST(req: NextRequest) {
       const reply = `📊 <b>Financial Snapshot</b>\n\n🟢 <b>Revenue:</b> ${formatCurrency(summary.totalRevenue, user.currency)}\n🔴 <b>Expenses:</b> ${formatCurrency(summary.totalExpenses, user.currency)}\n📈 <b>Net Cashflow:</b> ${formatCurrency(summary.netIncome, user.currency)}\n⏳ <b>Unpaid Invoices:</b> ${formatCurrency(summary.outstandingRevenue, user.currency)}`;
       await sendTelegramReply(chatId, reply);
     } else {
-      const reply = `🤖 <b>TeleExpense Bot</b>\n\nSend expenses like: <i>"Spent $45 on team lunch"</i>\nOr <code>/summary</code> for your balance overview.`;
+      const reply = `🤖 <b>Vaulto Bot</b>\n\nSend expenses like: <i>"Spent $45 on team lunch"</i>\nOr <code>/summary</code> for your balance overview.`;
       await sendTelegramReply(chatId, reply);
     }
 

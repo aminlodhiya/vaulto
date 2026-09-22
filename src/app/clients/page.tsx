@@ -131,17 +131,17 @@ export default function ClientsPage() {
   });
 
   return (
-    <div className="flex h-screen bg-zinc-50 dark:bg-zinc-950 overflow-hidden">
+    <div className="flex h-screen bg-stone-50/50 dark:bg-zinc-950 overflow-hidden">
       <Sidebar />
 
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <Header
           title="Client Directory"
-          subtitle="Manage client accounts, billing addresses, tax IDs and recurring invoice retainers."
+          subtitle="Manage client accounts, billing profiles, tax IDs and recurring invoice retainers."
         >
           <button
             onClick={openAddModal}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs shadow-sm transition-all"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-zinc-900 hover:bg-black dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-medium text-xs shadow-sm transition-all active:scale-[0.98]"
           >
             <Plus className="w-3.5 h-3.5" />
             Add New Client
@@ -150,59 +150,59 @@ export default function ClientsPage() {
 
         <div className="p-6 space-y-6 max-w-7xl mx-auto w-full pb-16">
           {/* Controls Bar */}
-          <div className="bg-white dark:bg-zinc-900 p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <span className="text-xs font-semibold text-zinc-500">
+          <div className="bg-white dark:bg-zinc-900 p-3.5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <span className="text-xs font-mono text-zinc-500">
               Showing {filteredClients.length} of {clients.length} clients
             </span>
 
             <div className="relative w-full sm:w-64">
-              <Search className="w-4 h-4 text-zinc-400 absolute left-3 top-2.5" />
+              <Search className="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search clients..."
-                className="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                placeholder="Search clients or company..."
+                className="w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-850 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition-colors"
               />
             </div>
           </div>
 
           {/* Clients Grid */}
           {loading ? (
-            <div className="p-12 text-center text-xs text-zinc-500">Loading clients...</div>
+            <div className="p-12 text-center text-xs font-mono text-zinc-500">Loading clients...</div>
           ) : filteredClients.length === 0 ? (
-            <div className="p-12 text-center text-zinc-500 space-y-3 bg-white dark:bg-zinc-900 rounded-2xl border border-zinc-200 dark:border-zinc-800">
-              <Users className="w-10 h-10 mx-auto text-zinc-400" />
-              <p className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
-                No clients found.
+            <div className="p-12 text-center text-zinc-500 space-y-3 bg-white dark:bg-zinc-900 rounded-xl border border-zinc-200/80 dark:border-zinc-800">
+              <Users className="w-8 h-8 mx-auto text-zinc-400" />
+              <p className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                No clients found
               </p>
               <button
                 onClick={openAddModal}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-indigo-600 text-white text-xs font-semibold shadow-sm"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-zinc-900 hover:bg-black dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 text-xs font-medium shadow-sm transition-colors"
               >
                 <Plus className="w-3.5 h-3.5" />
                 Add Your First Client
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {filteredClients.map((c) => (
                 <div
                   key={c.id}
-                  className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                  className="bg-white dark:bg-zinc-900 rounded-xl p-5 border border-zinc-200/80 dark:border-zinc-800 shadow-sm hover:border-zinc-300 dark:hover:border-zinc-700 transition-all flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-start justify-between gap-3 mb-3">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-sky-500 text-white flex items-center justify-center font-bold text-sm">
+                        <div className="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/60 dark:border-zinc-700 text-zinc-900 dark:text-white flex items-center justify-center font-bold text-xs font-mono">
                           {c.name.charAt(0)}
                         </div>
                         <div>
-                          <h3 className="font-bold text-sm text-zinc-900 dark:text-white">
+                          <h3 className="font-semibold text-sm text-zinc-900 dark:text-white">
                             {c.name}
                           </h3>
                           {c.company && (
-                            <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">
+                            <p className="text-xs text-zinc-500 dark:text-zinc-400">
                               {c.company}
                             </p>
                           )}
@@ -212,14 +212,14 @@ export default function ClientsPage() {
                       <div className="flex items-center gap-1">
                         <button
                           onClick={() => openEditModal(c)}
-                          className="p-1.5 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                          className="p-1.5 text-zinc-400 hover:text-zinc-900 dark:hover:text-white rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                           title="Edit Client"
                         >
                           <Edit className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleDelete(c.id)}
-                          className="p-1.5 text-zinc-400 hover:text-rose-500 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                          className="p-1.5 text-zinc-400 hover:text-rose-600 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                           title="Delete Client"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -227,7 +227,7 @@ export default function ClientsPage() {
                       </div>
                     </div>
 
-                    <div className="space-y-2 text-xs text-zinc-600 dark:text-zinc-400 my-4">
+                    <div className="space-y-2 text-xs text-zinc-600 dark:text-zinc-400 my-4 font-mono">
                       {c.email && (
                         <div className="flex items-center gap-2">
                           <Mail className="w-3.5 h-3.5 text-zinc-400" />
@@ -243,7 +243,7 @@ export default function ClientsPage() {
                       {c.address && (
                         <div className="flex items-start gap-2">
                           <MapPin className="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5" />
-                          <span className="line-clamp-2">{c.address}</span>
+                          <span className="line-clamp-2 font-sans">{c.address}</span>
                         </div>
                       )}
                       {c.taxId && (
@@ -252,13 +252,13 @@ export default function ClientsPage() {
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between">
-                    <span className="text-[11px] text-zinc-500">
+                  <div className="pt-3.5 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between">
+                    <span className="text-[11px] text-zinc-500 truncate max-w-[180px]">
                       {c.notes ? c.notes : "No notes"}
                     </span>
                     <Link
                       href="/invoices/new"
-                      className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
+                      className="text-xs font-medium text-zinc-900 dark:text-white hover:underline flex items-center gap-1"
                     >
                       <FileText className="w-3 h-3" />
                       Invoice
@@ -274,11 +274,11 @@ export default function ClientsPage() {
       {/* Add / Edit Client Modal */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl w-full max-w-md shadow-2xl p-6 space-y-4">
+          <div className="bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 rounded-xl w-full max-w-md shadow-2xl p-6 space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-zinc-800">
-              <h3 className="font-bold text-sm text-zinc-900 dark:text-white flex items-center gap-2">
-                <Users className="w-4 h-4 text-indigo-600" />
-                {editingClient ? "Edit Client" : "Add New Client"}
+              <h3 className="font-semibold text-sm text-zinc-900 dark:text-white flex items-center gap-2">
+                <Users className="w-4 h-4 text-zinc-900 dark:text-white" />
+                {editingClient ? "Edit Client Profile" : "Add New Client"}
               </h3>
               <button
                 onClick={() => setModalOpen(false)}
@@ -290,7 +290,7 @@ export default function ClientsPage() {
 
             <form onSubmit={handleSaveClient} className="space-y-3">
               <div>
-                <label className="block text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">
+                <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
                   Contact Name *
                 </label>
                 <input
@@ -299,14 +299,14 @@ export default function ClientsPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Sarah Jenkins"
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/60 focus:bg-white dark:focus:bg-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600"
                   autoFocus
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">
+                  <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
                     Company
                   </label>
                   <input
@@ -314,11 +314,11 @@ export default function ClientsPage() {
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     placeholder="e.g. Acme Corp"
-                    className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800"
+                    className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/60 focus:bg-white dark:focus:bg-zinc-900"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">
+                  <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
                     Email
                   </label>
                   <input
@@ -326,14 +326,14 @@ export default function ClientsPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="sarah@acme.com"
-                    className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800"
+                    className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/60 focus:bg-white dark:focus:bg-zinc-900 font-mono"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">
+                  <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
                     Phone
                   </label>
                   <input
@@ -341,11 +341,11 @@ export default function ClientsPage() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+1 (555) 000-0000"
-                    className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800"
+                    className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/60 focus:bg-white dark:focus:bg-zinc-900 font-mono"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">
+                  <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
                     Tax / VAT ID
                   </label>
                   <input
@@ -353,13 +353,13 @@ export default function ClientsPage() {
                     value={taxId}
                     onChange={(e) => setTaxId(e.target.value)}
                     placeholder="e.g. TX-998822"
-                    className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800"
+                    className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/60 focus:bg-white dark:focus:bg-zinc-900 font-mono"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">
+                <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
                   Billing Address
                 </label>
                 <textarea
@@ -367,20 +367,20 @@ export default function ClientsPage() {
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   placeholder="100 Tech Blvd, Austin, TX 78701"
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/60 focus:bg-white dark:focus:bg-zinc-900"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-zinc-600 dark:text-zinc-400 mb-1">
-                  Notes
+                <label className="block text-xs font-medium text-zinc-600 dark:text-zinc-400 mb-1">
+                  Internal Notes
                 </label>
                 <input
                   type="text"
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="e.g. Net 30 days, monthly retainer"
-                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800"
+                  placeholder="e.g. Net 30 terms, monthly retainer"
+                  className="w-full px-3 py-2 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-zinc-50/50 dark:bg-zinc-800/60 focus:bg-white dark:focus:bg-zinc-900"
                 />
               </div>
 
@@ -388,14 +388,14 @@ export default function ClientsPage() {
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="px-3 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 text-xs font-semibold text-zinc-600 dark:text-zinc-300"
+                  className="px-3 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-700 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={saving}
-                  className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs shadow-sm transition-all"
+                  className="px-4 py-1.5 rounded-lg bg-zinc-900 hover:bg-black dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-950 font-medium text-xs shadow-sm transition-all active:scale-[0.98]"
                 >
                   {saving ? "Saving..." : editingClient ? "Update Client" : "Create Client"}
                 </button>

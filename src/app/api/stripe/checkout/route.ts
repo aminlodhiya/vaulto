@@ -32,8 +32,8 @@ export async function POST(req: NextRequest) {
             price_data: {
               currency: "usd",
               product_data: {
-                name: `TeleExpense ${tier.toUpperCase()} Plan`,
-                description: `Unlimited invoices, Telegram Bot sync, Google Sheets live sync & cashflow analytics (${interval})`,
+                name: `Vaulto ${tier.toUpperCase()} Membership`,
+                description: `Financial Operating System: Unlimited invoices, Telegram Bot sync, Google Sheets live sync & cashflow analytics (${interval})`,
               },
               unit_amount: priceAmount,
               recurring: {

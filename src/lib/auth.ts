@@ -6,10 +6,10 @@ import { User } from "./types";
 import bcrypt from "bcryptjs";
 
 const JWT_SECRET = new TextEncoder().encode(
-  process.env.JWT_SECRET || "teleexpense-super-secret-jwt-key-2026-production"
+  process.env.JWT_SECRET || "vaulto-super-secret-jwt-key-2026-production"
 );
 
-export const AUTH_COOKIE_NAME = "tele_expense_token";
+export const AUTH_COOKIE_NAME = "vaulto_auth_token";
 
 export async function createToken(user: User): Promise<string> {
   return await new SignJWT({

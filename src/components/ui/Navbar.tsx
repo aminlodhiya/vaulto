@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useAuth } from "../providers/AuthProvider";
-import { Receipt, Send, Sparkles, ArrowRight, Menu, X, ShieldCheck } from "lucide-react";
+import { ArrowRight, Menu, X, Shield, ArrowUpRight } from "lucide-react";
 
 export function Navbar() {
   const { user, login } = useAuth();
@@ -17,21 +17,21 @@ export function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-zinc-950/80 border-b border-zinc-200 dark:border-zinc-800 transition-colors">
+    <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#fbfbfa]/90 dark:bg-[#09090b]/90 border-b border-zinc-200/80 dark:border-zinc-800/80 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand Logo */}
           <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-                <Receipt className="w-5 h-5" />
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div className="w-8 h-8 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center font-bold text-sm shadow-sm">
+                V
               </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white flex items-center gap-1">
-                  Tele<span className="text-indigo-600 dark:text-indigo-400">Expense</span>
+              <div className="flex items-center gap-2">
+                <span className="text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
+                  Vaulto
                 </span>
-                <span className="text-[10px] font-medium text-emerald-600 dark:text-emerald-400 -mt-1 tracking-wider uppercase">
-                  Fintech Suite
+                <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700">
+                  v2.0
                 </span>
               </div>
             </Link>
@@ -41,28 +41,21 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             <Link
               href="/#features"
-              className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
+              className="text-xs font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
             >
-              Features
+              Platform
             </Link>
             <Link
               href="/#demo"
-              className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors flex items-center gap-1.5"
+              className="text-xs font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-              Live Demo
+              Interactive Demo
             </Link>
             <Link
               href="/#pricing"
-              className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
+              className="text-xs font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
             >
               Pricing
-            </Link>
-            <Link
-              href="/#faq"
-              className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
-            >
-              FAQ
             </Link>
           </div>
 
@@ -71,32 +64,32 @@ export function Navbar() {
             {user ? (
               <Link
                 href="/dashboard"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm shadow-sm hover:shadow transition-all"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 font-medium text-xs shadow-sm transition-all"
               >
-                Go to Dashboard
-                <ArrowRight className="w-4 h-4" />
+                Dashboard
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             ) : (
               <>
                 <button
                   onClick={handleDemoLogin}
                   disabled={loggingInDemo}
-                  className="px-3 py-1.5 rounded-lg border border-indigo-200 dark:border-indigo-900/60 bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 font-medium text-xs flex items-center gap-1.5 transition-colors"
+                  className="px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800 font-medium text-xs transition-colors flex items-center gap-1.5 shadow-2xs"
                 >
-                  <ShieldCheck className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
-                  {loggingInDemo ? "Logging in..." : "1-Click Demo"}
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  {loggingInDemo ? "Signing in..." : "Instant Demo"}
                 </button>
                 <Link
                   href="/login"
-                  className="text-sm font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white px-3 py-2 transition-colors"
+                  className="text-xs font-medium text-zinc-700 hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-white px-2.5 py-1.5 transition-colors"
                 >
                   Sign In
                 </Link>
                 <Link
                   href="/register"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 font-medium text-sm transition-all shadow-sm"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 font-medium text-xs transition-all shadow-sm"
                 >
-                  Get Started Free
+                  Start Free
                 </Link>
               </>
             )}
@@ -108,7 +101,7 @@ export function Navbar() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -120,21 +113,21 @@ export function Navbar() {
           <Link
             href="/#features"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-base font-medium text-zinc-700 dark:text-zinc-300"
+            className="block py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300"
           >
-            Features
+            Platform
           </Link>
           <Link
             href="/#demo"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-base font-medium text-zinc-700 dark:text-zinc-300"
+            className="block py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300"
           >
-            Live Demo
+            Interactive Demo
           </Link>
           <Link
             href="/#pricing"
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-base font-medium text-zinc-700 dark:text-zinc-300"
+            className="block py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300"
           >
             Pricing
           </Link>
@@ -142,7 +135,7 @@ export function Navbar() {
             {user ? (
               <Link
                 href="/dashboard"
-                className="w-full text-center py-2.5 rounded-lg bg-indigo-600 text-white font-medium text-sm"
+                className="w-full text-center py-2 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium text-xs"
               >
                 Go to Dashboard
               </Link>
@@ -150,19 +143,19 @@ export function Navbar() {
               <>
                 <button
                   onClick={handleDemoLogin}
-                  className="w-full py-2.5 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-medium text-sm"
+                  className="w-full py-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-medium text-xs"
                 >
-                  ⚡ Try 1-Click Instant Demo
+                  ⚡ Try Instant 1-Click Demo
                 </button>
                 <Link
                   href="/login"
-                  className="w-full text-center py-2 text-zinc-700 dark:text-zinc-300 font-medium text-sm"
+                  className="w-full text-center py-2 text-zinc-700 dark:text-zinc-300 font-medium text-xs"
                 >
                   Sign In
                 </Link>
                 <Link
                   href="/register"
-                  className="w-full text-center py-2.5 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium text-sm"
+                  className="w-full text-center py-2 rounded-lg bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-medium text-xs"
                 >
                   Create Free Account
                 </Link>

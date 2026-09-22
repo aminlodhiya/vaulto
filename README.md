@@ -1,47 +1,58 @@
-# 🧾 TeleExpense — Fintech Invoicing & Telegram Expense Tracker Suite
+# 🏛️ Vaulto — Financial Operating System for Modern Studios & Solo Operators
 
-> **Your personal financial sidekick on Telegram 🧾✨** — Integrated with **Google Sheets**, **Stripe Billing**, and real-time **Cashflow Analytics**.  
-> Built as a lean, production-ready SaaS ready to run locally and charge customers.
+> **The refined financial operating system.** Effortless branded invoicing, automated Telegram expense capture, real-time Google Sheets 2-way sync, and instant Stripe monetization.
+> Designed with a **bespoke, luxury editorial aesthetic** — pure monochrome contrast, deep obsidian canvas, warm pearl surfaces, Swiss-style typography, and zero tacky gradients.
 
 ---
 
-## 🌟 Key Features
+## 🌟 Core Feature Suite
 
-### 1. 💼 Branded Invoicing Suite
-- **Multiple Professional Templates:** Modern Indigo, Emerald Clean, Executive Dark, and Minimalist Slate.
-- **Dynamic Line Items & Auto-Calculations:** Real-time subtotal, discount percentages, VAT/tax calculations, and grand totals.
-- **Client Directory:** Auto-complete client information, billing addresses, and tax IDs.
-- **Automated Recurring Invoices:** Support for Weekly, Monthly, Quarterly, and Yearly retainer billing schedules.
-- **Invoice Status Lifecycle:** Real-time tracking of `Draft`, `Sent`, `Paid`, `Unpaid`, and `Overdue` invoices.
-- **Vector-Sharp PDF Exports:** 1-click PDF generation powered by `jsPDF` and `html2canvas` + print stylesheets.
-- **Shareable Public Invoice Links:** Hosted links (`/view/[id]`) for clients to review and pay invoices.
+### 1. 💼 High-Fidelity Branded Invoicing
+- **Bespoke Editorial Templates:**
+  - **Modern Minimalist (Obsidian):** Monospace metrics, stark black/white hierarchy, clean hairline dividers.
+  - **Emerald Ledger:** Classic banking forest emerald accents, structured tabular layout, clean ledger lines.
+  - **Executive Charcoal:** High-density corporate layout tailored for agencies and consultancy retainers.
+- **Dynamic Line Items & Live Calculations:** Subtotal, line discounts, VAT/sales tax auto-computation, and grand totals.
+- **Client Directory & Autocomplete:** Store client addresses, corporate tax numbers, and payment terms.
+- **Automated Recurring Cycles:** Retainer schedules (Weekly, Monthly, Quarterly, Yearly).
+- **Invoice Lifecycle Management:** Real-time state management for `Draft`, `Sent`, `Paid`, `Unpaid`, and `Overdue`.
+- **Vector-Sharp PDF Exports:** Client-side vector PDF generation powered by `jsPDF` and `html2canvas` with print stylesheets.
+- **Shareable Public Invoice URLs:** Clean hosted payment view (`/view/[id]`) for clients to review and settle invoices directly.
 
-### 2. 🤖 Telegram AI Expense Sidekick
-- **Natural Language Parsing (NLP):** Log expenses in 2 seconds simply by typing natural text to your Telegram Bot:
-  - `"Spent $45 on lunch with Acme client"` &rarr; Extracts `$45.00`, Category: `Meals`, Merchant: `Acme`.
-  - `"AWS cloud hosting 145.20 #software"` &rarr; Extracts `$145.20`, Category: `Software`, Merchant: `AWS`.
-  - `"Uber ride to airport $32.50 category:travel"` &rarr; Extracts `$32.50`, Category: `Travel`, Merchant: `Uber`.
-  - `"/invoice Acme Corp 500 Web design"` &rarr; Automatically drafts a new invoice!
-  - `"/summary"` &rarr; Instant breakdown of revenue, expenses, and net profit.
-- **Built-in Interactive Simulator:** Test the Telegram Bot experience directly in the web browser without requiring a live Telegram bot token!
-- **Official Webhook Integration:** Live webhook handler (`/api/telegram/webhook`) ready for your official Telegram Bot token.
+### 2. 🤖 Telegram AI Expense Capture & Sandbox
+- **Natural Language Parsing (NLP):** Log expenses in under two seconds simply by typing natural sentences:
+  - `"Spent $45 on lunch with Acme team"` &rarr; Extracts `$45.00`, Category: `Meals`, Merchant: `Acme`.
+  - `"AWS cloud infrastructure 145.20 #software"` &rarr; Extracts `$145.20`, Category: `Software`, Merchant: `AWS`.
+  - `"Uber ride to client office $32.50 category:travel"` &rarr; Extracts `$32.50`, Category: `Travel`, Merchant: `Uber`.
+  - `"/invoice Acme Corp 500 Web design"` &rarr; Automatically drafts a new invoice in your workspace!
+  - `"/summary"` &rarr; Instant breakdown of revenue, expenses, and net profit margin.
+- **Built-in Browser Sandbox:** Test and simulate natural language Telegram commands directly in the browser without needing a live bot token.
+- **Production Webhook Integration:** Live webhook handler (`/api/telegram/webhook`) ready for your official Telegram Bot token from `@BotFather`.
 
-### 3. 📊 2-Way Google Sheets Sync & Financial Exports
-- **Instant CSV Downloads:** 1-click export for Invoices, Expenses, and Profit & Loss (P&L) Reports.
-- **Google Apps Script Live Sync:** Copy-pasteable Apps Script template included in the UI to automatically sync rows between any Google Sheet and TeleExpense.
-- **Live Data Sheet Preview:** Real-time view of synced spreadsheet data directly in your dashboard.
+### 3. 📊 2-Way Google Sheets Synchronization
+- **One-Click CSV Exports:** Export Invoices, Expenses, and Profit & Loss (P&L) Reports.
+- **Google Apps Script Live Integration:** Copy-pasteable Apps Script template included in the UI to automatically sync rows between any Google Sheet and Vaulto.
+- **Live Spreadsheet Explorer:** Real-time synced spreadsheet preview directly within your dashboard.
 
-### 4. 💳 Stripe Monetization & Paid Tiers
+### 4. 💳 Stripe Monetization & Paid Memberships
 - **Tiered Pricing Structure:**
-  - **Starter (Free / $0):** 5 invoices/mo, 20 expenses, basic templates.
-  - **Pro Sidekick ($19/mo or $190/yr):** Unlimited invoices, Telegram Bot NLP sync, Google Sheets live sync, recurring invoices, custom branding, and PDF exports.
-  - **Business Scale ($49/mo):** Multi-currency, custom domain links, priority webhooks, dedicated accountant reports.
-- **Stripe Test Mode Ready:** Live Stripe Checkout sessions (`/api/stripe/checkout`), Customer Billing Portal, and Webhooks.
-- **Zero-Friction Sandbox Fallback:** If Stripe keys are not yet configured, the app simulates upgrades seamlessly so you and your testers can experience the full paid flow instantly.
+  - **Free / Starter ($0):** 5 invoices/mo, 20 expenses, standard exports.
+  - **Vaulto Pro ($19/mo or $190/yr):** Unlimited invoices, Telegram AI bot, Google Sheets live sync, recurring cycles, custom branding, and PDF exports.
+  - **Vaulto Business ($49/mo):** Multi-currency, custom domain links, priority webhooks, dedicated accountant reports.
+- **Stripe Test Mode Ready:** Live Stripe Checkout sessions (`/api/stripe/checkout`), Customer Billing Portal, and Webhook listeners.
+- **Zero-Friction Sandbox Fallback:** If Stripe keys are omitted in development, the app simulates upgrades seamlessly so you can test the full paid experience.
 
-### 5. 🔒 Email/Password Auth & 1-Click Instant Demo
+### 5. 🔒 JWT Authentication & 1-Click Sandbox Login
 - Secure JWT sessions stored in HTTP-only cookies (`jose` + `bcryptjs`).
 - 1-Click Instant Demo login button for immediate evaluation.
+
+---
+
+## 🎨 Design Philosophy: Anti-AI Aesthetic
+Vaulto was intentionally designed to reject the generic "AI-generated" look:
+- **No tacky rainbow gradients** (`bg-gradient-to-r from-sky-500 via-indigo-600...`).
+- **Monochrome & High Contrast:** Deep obsidian (`#09090b`), warm pearl canvas (`#fbfbfa`), and subtle hairline borders (`border-zinc-200/80` / `border-zinc-800`).
+- **Swiss / Editorial Typography:** Crisp font weights, monospace accents for numbers and currency codes, structured tabular alignments.
 
 ---
 
@@ -67,7 +78,7 @@ cp .env.example .env.local
 Default contents of `.env.local`:
 ```env
 NEXT_PUBLIC_APP_URL=http://localhost:3000
-JWT_SECRET=teleexpense_super_secret_jwt_key_2026_xyz
+JWT_SECRET=vaulto_production_jwt_super_secret_key_change_me_2026
 STRIPE_SECRET_KEY=sk_test_placeholder_key
 STRIPE_PUBLISHABLE_KEY=pk_test_placeholder_key
 STRIPE_WEBHOOK_SECRET=whsec_placeholder_secret
@@ -80,17 +91,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- **Demo Account Credentials:**
-  - **Email:** `demo@teleexpense.io`
+- **Pre-seeded Demo Credentials:**
+  - **Email:** `demo@vaulto.io`
   - **Password:** `demo1234`
-  - *(Or simply click the "1-Click Instant Demo" button on the sign-in page!)*
+  - *(Or click the "Explore Live Demo Workspace" button on the sign-in page!)*
 
 ---
 
 ## 🛠️ Configuration & Integrations
 
-### 1. Setting up Telegram Bot (Optional for Live Telegram App)
-1. Open Telegram and message [@BotFather](https://t.me/BotFather) to create a new bot (e.g. `@MyTeleExpenseBot`).
+### 1. Setting up Telegram Bot (Optional)
+1. Open Telegram and message [@BotFather](https://t.me/BotFather) to create a new bot (e.g. `@MyVaultoBot`).
 2. Copy the **Bot Token** and set it in your `.env.local`:
    ```env
    TELEGRAM_BOT_TOKEN=123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ
@@ -104,9 +115,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ### 2. Setting up Google Sheets 2-Way Sync
 1. In your dashboard, go to the **Google Sheets** tab.
 2. Enter your Google Spreadsheet URL and Sheet name.
-3. Click **Copy Script** to copy the generated Google Apps Script code.
+3. Click **Copy Apps Script** to copy the generated integration script.
 4. In your Google Sheet, open **Extensions &gt; Apps Script**, paste the code, and click **Save**.
-5. Any expense edited in your sheet will automatically synchronize with TeleExpense!
+5. Any expense edited in your sheet will automatically synchronize with Vaulto!
 
 ### 3. Setting up Stripe Payments
 1. Create a free account at [Stripe.com](https://stripe.com).
@@ -122,9 +133,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🚢 Deployment Guide
 
-### Option 1: Vercel (Recommended - 1 Click)
+### Option 1: Vercel (Recommended)
 1. Push your repository to GitHub / GitLab.
-2. Go to [Vercel](https://vercel.com) &gt; **Add New Project** &gt; Select your repo.
+2. Go to [Vercel](https://vercel.com) &gt; **Add New Project** &gt; Select your repository.
 3. Add your Environment Variables (`JWT_SECRET`, `NEXT_PUBLIC_APP_URL`, etc.).
 4. Click **Deploy**.
 
@@ -133,7 +144,7 @@ Build and run using Docker:
 ```bash
 docker-compose up -d --build
 ```
-The application will be running on port `3000` with persistent storage mounted to `./data`.
+The application will run on port `3000` with persistent storage mounted to `./data`.
 
 ### Option 3: Railway / Render
 1. Create a new Web Service on Railway or Render connected to your GitHub repo.
@@ -142,7 +153,7 @@ The application will be running on port `3000` with persistent storage mounted t
 
 ---
 
-## 📁 Project Architecture
+## 📁 Project Structure
 
 ```
 TeleExpense/
@@ -167,7 +178,7 @@ TeleExpense/
 │   │   ├── telegram/           # Telegram pairing & chat interface
 │   │   ├── view/[id]/          # Public client-facing invoice view
 │   │   ├── layout.tsx          # Root layout & providers
-│   │   └── page.tsx            # High-converting Fintech landing page
+│   │   └── page.tsx            # Editorial Fintech landing page
 │   ├── components/
 │   │   ├── dashboard/          # MetricCard, CashflowChart, RecentInvoicesTable
 │   │   ├── invoice/            # InvoiceForm, InvoicePreview, InvoicePDF, Templates

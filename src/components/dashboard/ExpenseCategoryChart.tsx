@@ -16,21 +16,21 @@ interface ExpenseCategoryChartProps {
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
-  software: "#6366f1",
-  travel: "#0ea5e9",
-  meals: "#f59e0b",
-  office: "#10b981",
-  marketing: "#ec4899",
-  contractor: "#8b5cf6",
-  utilities: "#14b8a6",
-  other: "#64748b",
+  software: "#18181b",
+  travel: "#3f3f46",
+  meals: "#71717a",
+  office: "#a1a1aa",
+  marketing: "#047857",
+  contractor: "#52525b",
+  utilities: "#27272a",
+  other: "#d4d4d8",
 };
 
 export function ExpenseCategoryChart({ data, currency = "USD" }: ExpenseCategoryChartProps) {
   if (!data || data.length === 0) {
     return (
-      <div className="h-64 flex items-center justify-center text-xs text-zinc-400">
-        No expenses recorded yet.
+      <div className="h-64 flex items-center justify-center text-xs text-zinc-400 font-mono">
+        No expense records found.
       </div>
     );
   }
@@ -39,7 +39,7 @@ export function ExpenseCategoryChart({ data, currency = "USD" }: ExpenseCategory
     name: d.category.charAt(0).toUpperCase() + d.category.slice(1),
     value: d.amount,
     percentage: d.percentage,
-    color: CATEGORY_COLORS[d.category] || "#64748b",
+    color: CATEGORY_COLORS[d.category] || "#52525b",
   }));
 
   return (
@@ -50,10 +50,12 @@ export function ExpenseCategoryChart({ data, currency = "USD" }: ExpenseCategory
             data={chartData}
             cx="50%"
             cy="50%"
-            innerRadius={60}
-            outerRadius={90}
-            paddingAngle={4}
+            innerRadius={55}
+            outerRadius={85}
+            paddingAngle={2}
             dataKey="value"
+            stroke="#ffffff"
+            strokeWidth={1}
           >
             {chartData.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />
@@ -64,10 +66,10 @@ export function ExpenseCategoryChart({ data, currency = "USD" }: ExpenseCategory
               if (active && payload && payload.length) {
                 const item = payload[0].payload;
                 return (
-                  <div className="bg-zinc-900 border border-zinc-700 p-2.5 rounded-lg shadow-xl text-xs text-white font-mono space-y-1">
+                  <div className="bg-zinc-950 border border-zinc-700 p-2.5 rounded-lg shadow-md text-xs text-white font-mono space-y-0.5">
                     <p className="font-bold flex items-center gap-2">
                       <span
-                        className="w-2.5 h-2.5 rounded-full inline-block"
+                        className="w-2 h-2 rounded-full inline-block"
                         style={{ backgroundColor: item.color }}
                       />
                       {item.name}
@@ -85,7 +87,7 @@ export function ExpenseCategoryChart({ data, currency = "USD" }: ExpenseCategory
             verticalAlign="bottom"
             layout="horizontal"
             iconType="circle"
-            wrapperStyle={{ paddingTop: "10px", fontSize: "11px" }}
+            wrapperStyle={{ paddingTop: "10px", fontSize: "10px", fontFamily: "monospace" }}
           />
         </PieChart>
       </ResponsiveContainer>

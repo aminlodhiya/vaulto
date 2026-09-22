@@ -20,50 +20,21 @@ export function MetricCard({
   change,
   isPositive,
   icon: Icon,
-  color = "indigo",
   badge,
 }: MetricCardProps) {
-  const colorMap = {
-    indigo: {
-      bg: "bg-indigo-50 dark:bg-indigo-950/40",
-      text: "text-indigo-600 dark:text-indigo-400",
-      border: "border-indigo-100 dark:border-indigo-900/50",
-    },
-    emerald: {
-      bg: "bg-emerald-50 dark:bg-emerald-950/40",
-      text: "text-emerald-600 dark:text-emerald-400",
-      border: "border-emerald-100 dark:border-emerald-900/50",
-    },
-    amber: {
-      bg: "bg-amber-50 dark:bg-amber-950/40",
-      text: "text-amber-600 dark:text-amber-400",
-      border: "border-amber-100 dark:border-amber-900/50",
-    },
-    rose: {
-      bg: "bg-rose-50 dark:bg-rose-950/40",
-      text: "text-rose-600 dark:text-rose-400",
-      border: "border-rose-100 dark:border-rose-900/50",
-    },
-    sky: {
-      bg: "bg-sky-50 dark:bg-sky-950/40",
-      text: "text-sky-600 dark:text-sky-400",
-      border: "border-sky-100 dark:border-sky-900/50",
-    },
-  }[color];
-
   return (
-    <div className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-sm transition-all hover:shadow-md">
+    <div className="bg-white dark:bg-[#0c0d0e] p-5 rounded-xl border border-zinc-200/80 dark:border-zinc-850 shadow-2xs hover:border-zinc-300 dark:hover:border-zinc-700 transition-all">
       <div className="flex items-center justify-between mb-3">
-        <span className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+        <span className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
           {title}
         </span>
-        <div className={cn("p-2.5 rounded-xl border", colorMap.bg, colorMap.border, colorMap.text)}>
-          <Icon className="w-5 h-5" />
+        <div className="p-2 rounded-md bg-zinc-100 dark:bg-zinc-850 text-zinc-700 dark:text-zinc-300">
+          <Icon className="w-4 h-4" />
         </div>
       </div>
 
       <div className="space-y-1">
-        <h3 className="text-2xl font-bold font-mono text-zinc-900 dark:text-white tracking-tight">
+        <h3 className="text-2xl font-bold font-mono text-zinc-950 dark:text-white tracking-tight">
           {value}
         </h3>
 
@@ -71,10 +42,10 @@ export function MetricCard({
           {change && (
             <span
               className={cn(
-                "text-xs font-semibold px-1.5 py-0.5 rounded",
+                "text-[10px] font-mono px-1.5 py-0.2 rounded font-medium",
                 isPositive
-                  ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
-                  : "bg-rose-50 text-rose-700 dark:bg-rose-950 dark:text-rose-300"
+                  ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700"
+                  : "bg-rose-50 text-rose-800 dark:bg-rose-950/60 dark:text-rose-300 border border-rose-200 dark:border-rose-900"
               )}
             >
               {change}
@@ -82,13 +53,13 @@ export function MetricCard({
           )}
 
           {subValue && (
-            <span className="text-xs text-zinc-500 dark:text-zinc-400 truncate">
+            <span className="text-[11px] text-zinc-500 dark:text-zinc-400 truncate">
               {subValue}
             </span>
           )}
 
           {badge && (
-            <span className="text-[10px] ml-auto px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-medium">
+            <span className="text-[9px] font-mono ml-auto px-1.5 py-0.2 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-500">
               {badge}
             </span>
           )}

@@ -164,9 +164,9 @@ export default function InvoicesPage() {
                 <button
                   key={tab.id}
                   onClick={() => setFilter(tab.id)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${
                     filter === tab.id
-                      ? "bg-indigo-600 text-white shadow-sm"
+                      ? "bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-2xs font-semibold"
                       : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800"
                   }`}
                 >
@@ -200,7 +200,7 @@ export default function InvoicesPage() {
                 </p>
                 <Link
                   href="/invoices/new"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-indigo-600 text-white text-xs font-semibold shadow-sm"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-xs font-medium shadow-2xs"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   Create First Invoice
